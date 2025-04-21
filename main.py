@@ -93,8 +93,19 @@ elif st.session_state["step"] == 4:
     words_random_int = random.randrange(0, len(dict_keys))
     now_key = dict_keys[words_random_int]
 
+    
+
+    if "(" in now_key:
+        head, tail = now_key.split("(", 1) 
+        tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    else:
+        head = now_key
+        tail = ""
+
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'<p style="text-align:center; font-size:40px;">{now_key}</p>', unsafe_allow_html=True)
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+</p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px; visibility:hidden;">빈칸</p>', unsafe_allow_html=True)
 
 
@@ -121,8 +132,17 @@ elif st.session_state["step"] == 5:
 
     # 엔터로 클릭될 버튼 (화면에서는 안 보이게 숨김)
 
+    if "(" in now_key:
+        head, tail = now_key.split("(", 1) 
+        tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    else:
+        head = now_key
+        tail = ""
+
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'<p style="text-align:center; font-size:40px;">{now_key}</p>', unsafe_allow_html=True)
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+</p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
