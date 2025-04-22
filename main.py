@@ -129,6 +129,10 @@ elif st.session_state["step"] == 4:
 
         
 elif st.session_state["step"] == 5:
+        
+    file_num = st.session_state["file_num"]
+    dic_num = st.session_state["dic_num"]
+
     dict = st.session_state["dict"]
     now_key = st.session_state["now_key"]
     dict_length = st.session_state["dict_length"]
@@ -144,6 +148,8 @@ elif st.session_state["step"] == 5:
     else:
         head = now_key
         tail = ""
+
+    st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
     st.markdown(f'''<p style="text-align:center; font-size:40px;">
