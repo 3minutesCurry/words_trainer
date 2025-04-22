@@ -51,6 +51,13 @@ elif st.session_state["step"] == 2:
     dict_count = sum(1 for v in vars(selected_file).values() if isinstance(v, dict))
     st.write(f"단어장 번호를 선택해주세요")
 
+    all_button = st.button("전체 단어")
+
+    if all_button:
+        st.session_state["dic_num"] = "all"
+        st.session_state["step"] = 3
+        st.rerun()
+
     for i in range(dict_count-1):
         if st.button(f"단어장 {i+1}", key=f"button_2nd_{i}"):
             st.session_state["dic_num"] = i
@@ -61,16 +68,29 @@ elif st.session_state["step"] == 2:
 elif st.session_state["step"] == 3:
     file_num = st.session_state["file_num"]
     dic_num = st.session_state["dic_num"]
+
     
     selected_file = words_files_list[file_num]
     dict_list = [val for name, val in vars(selected_file).items()
              if not name.startswith("__") and isinstance(val, dict)]
     
-    st.session_state["dict"] = dict_list[dic_num]
-    st.session_state["dict_keys"] = list(dict_list[dic_num].keys())
-    st.session_state["dict_length"] = len(dict_list[dic_num].keys())
-    st.session_state["perm_dict_length"] = len(dict_list[dic_num].keys())
-    dict_length = st.session_state["dict_length"]
+    if dic_num == "all":
+        all_dict = {}
+
+        for i in dict_list:
+            all_dict = all_dict | i
+
+        st.session_state["dict"] = all_dict
+        st.session_state["dict_keys"] = list(all_dict.keys())
+        st.session_state["dict_length"] = len(all_dict.keys())
+        st.session_state["perm_dict_length"] = len(all_dict.keys())
+        dict_length = st.session_state["dict_length"]
+    else:
+        st.session_state["dict"] = dict_list[dic_num]
+        st.session_state["dict_keys"] = list(dict_list[dic_num].keys())
+        st.session_state["dict_length"] = len(dict_list[dic_num].keys())
+        st.session_state["perm_dict_length"] = len(dict_list[dic_num].keys())
+        dict_length = st.session_state["dict_length"]
 
     st.session_state["step"] = 4
     st.session_state["now_word_number"] = 1
@@ -104,8 +124,11 @@ elif st.session_state["step"] == 4:
     else:
         head = now_key
         tail = ""
-    
-    st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
+
+    if dic_num == "all":
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name} 전체 ]</p>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
@@ -149,7 +172,10 @@ elif st.session_state["step"] == 5:
         head = now_key
         tail = ""
 
-    st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
+    if dic_num == "all":
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name} 전체 ]</p>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
     st.markdown(f'''<p style="text-align:center; font-size:40px;">
