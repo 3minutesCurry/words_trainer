@@ -1,33 +1,43 @@
 import random
-import time
-import importlib, pkgutil
+import importlib.util
 
 import data
 
+import os
 import streamlit as st
 import streamlit.components.v1 as components
-
-
-
-words_files_list = []
-
-for _, module_name, _ in pkgutil.iter_modules(data.__path__):
-    full_name = f"{data.__name__}.{module_name}"
-    module = importlib.import_module(full_name)
-    dict_count = sum(1 for v in vars(module).values() if isinstance(v, dict))
-    words_files_list.append(module)
-
-
-files_length = len(words_files_list)
-
 
 st.title("일본어 단어 연습기")
 st.write("오늘 하루도 일심히 단어 연습해 봅시다!")
 
+BASE_PATH = "data"
+
+# 1. data 안에 있는 폴더 이름 리스트로 반환
+def get_subfolders(base_path=BASE_PATH):
+    return [name for name in os.listdir(base_path)
+            if os.path.isdir(os.path.join(base_path, name))and not name.startswith("__")]
+
+# 2. data 안의 특정 폴더의 .py 파일들을 모듈로 가져오기
+def import_modules_from_folder(folder_name):
+    folder_path = os.path.join(BASE_PATH, folder_name)
+    modules = {}
+
+    for file in os.listdir(folder_path):
+        if file.endswith(".py") and not file.startswith("__"):
+            file_path = os.path.join(folder_path, file)
+            module_name = f"{file[:-3]}"  # 확장자 제거
+
+            spec = importlib.util.spec_from_file_location(module_name, file_path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+
+            modules[module_name] = module
+
+    return modules
 
 
-if "file_num" not in st.session_state:
-    st.session_state["file_num"] = None
+
+words_category = get_subfolders()
 
 if "step" not in st.session_state:
     st.session_state["step"] = 1
@@ -35,20 +45,26 @@ if "step" not in st.session_state:
 
 # 값이 설정되었는지 확인
 if st.session_state["step"] == 1:
-    st.write(f"* 단어장을 선택해주세요")
-    for i in range(files_length):
-        if st.button(f"{words_files_list[i].name}", key=f"button_{i}"):
-            st.session_state["file_num"] = i
-            st.session_state["step"] = 2
-            st.rerun()
+    for i in words_category:
+        files = import_modules_from_folder(i)
+        st.write(f"* {i}")
+        files_names = list(files.keys())
+
+        for k in files_names:
+            if st.button(f"{files[k].name}", key=f"button_{k}"):
+                st.session_state["file_name"] = files[k].name
+                st.session_state["step"] = 2
+                st.session_state["the_file"] = files[k]
+                st.rerun()
 
 
 elif st.session_state["step"] == 2:
+    the_file = st.session_state["the_file"]
+    file_name = st.session_state["file_name"]
 
-    file_num = st.session_state["file_num"]
-    st.success(f"[{words_files_list[file_num].name}] 단어장을 선택하셨습니다!")
-    selected_file = words_files_list[file_num]
-    dict_count = sum(1 for v in vars(selected_file).values() if isinstance(v, dict))
+    st.success(f"[{file_name}] 단어장을 선택하셨습니다!")
+    
+    dict_count = sum(1 for v in vars(the_file).values() if isinstance(v, dict))
     st.write(f"단어장 번호를 선택해주세요")
 
     all_button = st.button("전체 단어")
@@ -66,13 +82,13 @@ elif st.session_state["step"] == 2:
 
     
 elif st.session_state["step"] == 3:
-    file_num = st.session_state["file_num"]
+    the_file = st.session_state["the_file"]
     dic_num = st.session_state["dic_num"]
 
     
-    selected_file = words_files_list[file_num]
+    selected_file = the_file
     dict_list = [val for name, val in vars(selected_file).items()
-             if not name.startswith("__") and isinstance(val, dict)]
+    if not name.startswith("__") and isinstance(val, dict)]
     
     if dic_num == "all":
         all_dict = {}
@@ -99,8 +115,8 @@ elif st.session_state["step"] == 3:
 
 
 elif st.session_state["step"] == 4:
+    the_file = st.session_state["the_file"]
 
-    file_num = st.session_state["file_num"]
     dic_num = st.session_state["dic_num"]
 
     dict = st.session_state["dict"]
@@ -126,9 +142,9 @@ elif st.session_state["step"] == 4:
         tail = ""
 
     if dic_num == "all":
-        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name} 전체 ]</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
     else:
-        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
@@ -152,8 +168,8 @@ elif st.session_state["step"] == 4:
 
         
 elif st.session_state["step"] == 5:
-        
-    file_num = st.session_state["file_num"]
+    the_file = st.session_state["the_file"]
+
     dic_num = st.session_state["dic_num"]
 
     dict = st.session_state["dict"]
@@ -173,9 +189,9 @@ elif st.session_state["step"] == 5:
         tail = ""
 
     if dic_num == "all":
-        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name} 전체 ]</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
     else:
-        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
     st.markdown(f'''<p style="text-align:center; font-size:40px;">
