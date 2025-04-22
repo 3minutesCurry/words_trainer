@@ -61,7 +61,6 @@ elif st.session_state["step"] == 2:
 elif st.session_state["step"] == 3:
     file_num = st.session_state["file_num"]
     dic_num = st.session_state["dic_num"]
-    st.success(f"[{words_files_list[file_num].name}]   ({dic_num+1})번 단어장")
     
     selected_file = words_files_list[file_num]
     dict_list = [val for name, val in vars(selected_file).items()
@@ -75,10 +74,14 @@ elif st.session_state["step"] == 3:
 
     st.session_state["step"] = 4
     st.session_state["now_word_number"] = 1
+    
     st.rerun()
 
 
 elif st.session_state["step"] == 4:
+
+    file_num = st.session_state["file_num"]
+    dic_num = st.session_state["dic_num"]
 
     dict = st.session_state["dict"]
     dict_keys = st.session_state["dict_keys"]
@@ -101,6 +104,9 @@ elif st.session_state["step"] == 4:
     else:
         head = now_key
         tail = ""
+    
+    st.markdown(f'<p style="text-align:center; font-size:20px;">[ {words_files_list[file_num].name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
+
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
     st.markdown(f'''<p style="text-align:center; font-size:40px;">
