@@ -69,7 +69,6 @@ elif st.session_state["step"] == 2:
 
 
     dict_count_divided_by_4 = (dict_count) // 4
-    dict_count_divided_by_4 = dict_count_divided_by_4 + 1
     dict_count_divided_by_4_rest = (dict_count) % 4
 
     if st.button("전체 단어", use_container_width=True):
@@ -85,14 +84,15 @@ elif st.session_state["step"] == 2:
     for i in range(dict_count_divided_by_4_rest):
         rest_list[i] = rest_list[i] + 1
     
-    for i in range(dict_count_divided_by_4 + 1):
+    base_num = 0
+    for i in range(4):
         for k in range(dict_count_divided_by_4 + rest_list[i]):
             with col_list[i]:
-                if st.button(f"단어장 {4*i+k+1}", key=f"button_2nd_{4*i+k+1}", use_container_width=True):
-                    st.session_state["dic_num"] = i*4 + k + 1
+                if st.button(f"단어장 {base_num+k+1}", key=f"button_2nd_{base_num+k+1}", use_container_width=True):
+                    st.session_state["dic_num"] = base_num+k+1
                     st.session_state["step"] = 3
                     st.rerun()
-
+        base_num = base_num + dict_count_divided_by_4 + rest_list[i]
     
             
     
