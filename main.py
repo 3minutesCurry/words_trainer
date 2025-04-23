@@ -212,7 +212,7 @@ elif st.session_state["step"] == 5:
     
 elif st.session_state["step"] == 6:
     perm_dict_length = st.session_state["perm_dict_length"]
-    the_file = st.session_state{"the_file"}
+    the_file = st.session_state["the_file"]
 
     if the_file.type == "word":
         type = "단어"
