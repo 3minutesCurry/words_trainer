@@ -14,7 +14,7 @@ BASE_PATH = "data"
 
 # 1. data 안에 있는 폴더 이름 리스트로 반환
 def get_subfolders(base_path=BASE_PATH):
-    return [name for name in os.listdir(base_path)
+    return [name for name in sorted(os.listdir(base_path))
             if os.path.isdir(os.path.join(base_path, name))and not name.startswith("__")]
 
 # 2. data 안의 특정 폴더의 .py 파일들을 모듈로 가져오기
@@ -22,7 +22,7 @@ def import_modules_from_folder(folder_name):
     folder_path = os.path.join(BASE_PATH, folder_name)
     modules = {}
 
-    for file in os.listdir(folder_path):
+    for file in sorted(os.listdir(folder_path)):
         if file.endswith(".py") and not file.startswith("__"):
             file_path = os.path.join(folder_path, file)
             module_name = f"{file[:-3]}"  # 확장자 제거
