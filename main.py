@@ -132,7 +132,6 @@ elif st.session_state["step"] == 4:
     words_random_int = random.randrange(0, len(dict_keys))
     now_key = dict_keys[words_random_int]
 
-    
     if the_file.type == "word":
         if "(" in now_key:
             head, tail = now_key.split("(", 1) 
@@ -140,7 +139,7 @@ elif st.session_state["step"] == 4:
         else:
             head = now_key
             tail = ""
-
+    else:
         head = now_key
         tail = ""
 
@@ -184,9 +183,13 @@ elif st.session_state["step"] == 5:
 
     # 엔터로 클릭될 버튼 (화면에서는 안 보이게 숨김)
 
-    if "(" in now_key:
-        head, tail = now_key.split("(", 1) 
-        tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    if the_file.type == "word":
+        if "(" in now_key:
+            head, tail = now_key.split("(", 1) 
+            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+        else:
+            head = now_key
+            tail = ""
     else:
         head = now_key
         tail = ""
