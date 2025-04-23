@@ -67,19 +67,34 @@ elif st.session_state["step"] == 2:
     dict_count = sum(1 for v in vars(the_file).values() if isinstance(v, dict))
     st.write(f"단어장 번호를 선택해주세요")
 
-    all_button = st.button("전체 단어")
 
-    if all_button:
-        st.session_state["dic_num"] = "all"
-        st.session_state["step"] = 3
-        st.rerun()
+    dict_count_divided_by_4 = (dict_count) // 4
+    dict_count_divided_by_4 = dict_count_divided_by_4 + 1
+    dict_count_divided_by_4_rest = (dict_count) % 4
 
-    for i in range(dict_count-1):
-        if st.button(f"단어장 {i+1}", key=f"button_2nd_{i}"):
-            st.session_state["dic_num"] = i
+    if st.button("전체 단어", use_container_width=True):
+            st.session_state["dic_num"] = "all"
             st.session_state["step"] = 3
             st.rerun()
 
+    col1, col2, col3, col4 = st.columns(4)    
+
+    col_list = [col1, col2, col3, col4]   
+    rest_list = [0, 0, 0, 0]
+
+    for i in range(dict_count_divided_by_4_rest):
+        rest_list[i] = rest_list[i] + 1
+    
+    for i in range(dict_count_divided_by_4 + 1):
+        for k in range(dict_count_divided_by_4 + rest_list[i]):
+            with col_list[i]:
+                if st.button(f"단어장 {4*i+k+1}", key=f"button_2nd_{4*i+k+1}", use_container_width=True):
+                    st.session_state["dic_num"] = i*4 + k + 1
+                    st.session_state["step"] = 3
+                    st.rerun()
+
+    
+            
     
 elif st.session_state["step"] == 3:
     the_file = st.session_state["the_file"]
