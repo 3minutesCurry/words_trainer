@@ -1,4 +1,5 @@
 name = "JLPT N2 1단원 단어"
+type = "word"
 
 nihongo_1 = {
     "負担 (ふたん)" : "부담, 책임, 짐",

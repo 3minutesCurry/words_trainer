@@ -62,7 +62,7 @@ elif st.session_state["step"] == 2:
     the_file = st.session_state["the_file"]
     file_name = st.session_state["file_name"]
 
-    st.success(f"[{file_name}] 단어장을 선택하셨습니다!")
+    st.success(f"[{file_name}]를 선택하셨습니다!")
     
     dict_count = sum(1 for v in vars(the_file).values() if isinstance(v, dict))
     st.write(f"단어장 번호를 선택해주세요")
@@ -133,11 +133,14 @@ elif st.session_state["step"] == 4:
     now_key = dict_keys[words_random_int]
 
     
+    if the_file.type == "word":
+        if "(" in now_key:
+            head, tail = now_key.split("(", 1) 
+            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+        else:
+            head = now_key
+            tail = ""
 
-    if "(" in now_key:
-        head, tail = now_key.split("(", 1) 
-        tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-    else:
         head = now_key
         tail = ""
 
@@ -209,6 +212,13 @@ elif st.session_state["step"] == 5:
     
 elif st.session_state["step"] == 6:
     perm_dict_length = st.session_state["perm_dict_length"]
+    the_file = st.session_state{"the_file"}
+
+    if the_file.type == "word":
+        type = "단어"
+    elif the_file.type == "sentence":
+        type = "문장"
+
     st.markdown(f"""
 <div style="
     background-color: #d4edda;
@@ -219,7 +229,7 @@ elif st.session_state["step"] == 6:
     font-size: 20px;
     font-weight: bold;
     border: 1px solid #c3e6cb;">
-    수고하셨습니다! 총 {perm_dict_length}개의 단어를 공부했습니다.
+    수고하셨습니다! 총 {perm_dict_length}개의 {type}를 공부했습니다.
 </div>
 """, unsafe_allow_html=True)
     st.balloons()

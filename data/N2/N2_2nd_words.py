@@ -1,4 +1,5 @@
 name = "JLPT N2 2단원 단어"
+type = "word"
 
 nihongo_1 = {
     "愛 (あい)": "사랑",
