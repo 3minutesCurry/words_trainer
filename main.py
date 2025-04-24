@@ -64,7 +64,10 @@ elif st.session_state["step"] == 2:
 
     st.success(f"[{file_name}]를 선택하셨습니다!")
     
-    dict_count = sum(1 for v in vars(the_file).values() if isinstance(v, dict))
+    dict_count = sum(
+        1 for k, v in vars(the_file).items()
+        if isinstance(v, dict) and not k.startswith("_")
+    )
     st.write(f"단어장 번호를 선택해주세요")
 
 
@@ -80,7 +83,6 @@ elif st.session_state["step"] == 2:
 
     col_list = [col1, col2, col3, col4]   
     rest_list = [0, 0, 0, 0]
-
     for i in range(dict_count_divided_by_4_rest):
         rest_list[i] = rest_list[i] + 1
     
@@ -89,7 +91,7 @@ elif st.session_state["step"] == 2:
         for k in range(dict_count_divided_by_4 + rest_list[i]):
             with col_list[i]:
                 if st.button(f"단어장 {base_num+k+1}", key=f"button_2nd_{base_num+k+1}", use_container_width=True):
-                    st.session_state["dic_num"] = base_num+k+1
+                    st.session_state["dic_num"] = base_num+k
                     st.session_state["step"] = 3
                     st.rerun()
         base_num = base_num + dict_count_divided_by_4 + rest_list[i]
