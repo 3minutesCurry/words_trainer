@@ -79,24 +79,32 @@ elif st.session_state["step"] == 2:
             st.session_state["step"] = 3
             st.rerun()
 
-    col1, col2, col3, col4 = st.columns(4)    
+    col_dict = {}
 
-    col_list = [col1, col2, col3, col4]   
-    rest_list = [0, 0, 0, 0]
-    for i in range(dict_count_divided_by_4_rest):
-        rest_list[i] = rest_list[i] + 1
+    for i in range(dict_count_divided_by_4):
+        col1, col2, col3, col4 = st.columns(4) 
+        col_dict[i] = col1, col2, col3, col4
+
     
-    base_num = 0
-    for i in range(4):
-        for k in range(dict_count_divided_by_4 + rest_list[i]):
-            with col_list[i]:
-                if st.button(f"단어장 {base_num+k+1}", key=f"button_2nd_{base_num+k+1}", use_container_width=True):
-                    st.session_state["dic_num"] = base_num+k
+    for i in range(dict_count_divided_by_4):
+        m = 1
+        for k in col_dict[i]:
+            with k:
+                if st.button(f"{i*4+m}번 단어장", key=f"{i*4+m}", use_container_width=True):
+                    st.session_state["dic_num"] = i*4+m - 1 
                     st.session_state["step"] = 3
                     st.rerun()
-        base_num = base_num + dict_count_divided_by_4 + rest_list[i]
-    
-            
+            m = m + 1
+
+    col1, col2, col3, col4 = st.columns(4) 
+    col_list = [col1, col2, col3, col4]
+
+    for i in range(dict_count_divided_by_4_rest):
+        with col_list[i]:
+            if st.button(f"{dict_count_divided_by_4*4+i+1}번 단어장", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
+                st.session_state["dic_num"] = dict_count_divided_by_4*4+i
+                st.session_state["step"] = 3
+                st.rerun()
     
 elif st.session_state["step"] == 3:
     the_file = st.session_state["the_file"]
@@ -152,6 +160,10 @@ elif st.session_state["step"] == 3:
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 3
                 st.rerun()
+    else:
+        st.session_state["word_type"] = 0
+        st.session_state["step"] = 4
+        st.rerun()
 
 
 elif st.session_state["step"] == 4:
