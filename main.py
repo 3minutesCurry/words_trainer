@@ -8,7 +8,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.title("일본어 단어 연습기")
-st.write("오늘 하루도 일심히 단어 연습해 봅시다!")
+st.write("오늘 하루도 열심히 단어 연습해 봅시다!")
 
 BASE_PATH = "data"
 
