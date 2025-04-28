@@ -168,7 +168,6 @@ elif st.session_state["step"] == 3:
 
 elif st.session_state["step"] == 4:
     the_file = st.session_state["the_file"]
-
     dic_num = st.session_state["dic_num"]
 
     dict = st.session_state["dict"]
@@ -290,6 +289,7 @@ elif st.session_state["step"] == 5:
 elif st.session_state["step"] == 6:
     perm_dict_length = st.session_state["perm_dict_length"]
     the_file = st.session_state["the_file"]
+    dic_num = st.session_state["dic_num"]
 
     if the_file.type == "word":
         type = "단어"
@@ -306,7 +306,23 @@ elif st.session_state["step"] == 6:
     font-size: 20px;
     font-weight: bold;
     border: 1px solid #c3e6cb;">
-    수고하셨습니다! 총 {perm_dict_length}개의 {type}를 공부했습니다.
+    수고하셨습니다!
+</div>
+""", unsafe_allow_html=True)
+    st.write("")
+    st.markdown(f"""
+<div style="
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #c3e6cb;">
+    [{the_file.name}] <br>
+    단어장 {dic_num+1} <br>
+    {perm_dict_length}개의 {type}
 </div>
 """, unsafe_allow_html=True)
     st.balloons()
