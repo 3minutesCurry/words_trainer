@@ -177,7 +177,7 @@ elif st.session_state["step"] == 4:
     perm_dict_length = st.session_state["perm_dict_length"]
     word_type = st.session_state["word_type"]
 
-    if perm_dict_length + 1 == now_word_number:
+    if len(dict_keys) == 0:
         st.session_state["step"] = 6
         st.rerun()
 
