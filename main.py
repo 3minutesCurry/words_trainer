@@ -1,7 +1,6 @@
 import random
 import importlib.util
-
-import data
+import math
 
 import os
 import streamlit as st
@@ -56,7 +55,11 @@ if st.session_state["step"] == 1:
                 st.session_state["step"] = 2
                 st.session_state["the_file"] = files[k]
                 st.rerun()
-
+    
+    st.write("---------------------------------------------")
+    if st.button("거리 측정기"):
+        st.session_state["step"] = 999
+        st.rerun()
 
 elif st.session_state["step"] == 2:
     the_file = st.session_state["the_file"]
@@ -335,10 +338,25 @@ elif st.session_state["step"] == 6:
         st.rerun()
 
          
+elif st.session_state["step"] == 999:
+    dist = st.number_input("직선 거리", step=1, format="%d")
+    angle = st.number_input("각도", step=1, format="%d")
 
+    if st.button("입력"):
+        radian = math.radians(angle)
+        
+        print(dist, angle)
 
+        # 사인과 코사인 값 구하기
+        st.session_state["horizontal_dist"] = dist * math.cos(radian)
+        st.session_state["vertical_dist"] = dist * math.sin(radian)
+        
+        st.session_state["step"] = 998
+        st.rerun()
 
-
-
-
-
+elif st.session_state["step"] == 998:
+    horizontal_dist = round(st.session_state["horizontal_dist"], 2)
+    vertical_dist = round(st.session_state["vertical_dist"], 2)
+    
+    st.write(f"수평 거리 : {horizontal_dist}m")
+    st.write(f"수직 거리 : {vertical_dist}m")
