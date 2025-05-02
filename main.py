@@ -299,6 +299,11 @@ elif st.session_state["step"] == 6:
     elif the_file.type == "sentence":
         type = "문장"
 
+    if isinstance(dic_num, int):
+        real_dic_num = dic_num + 1
+    else:
+        real_dic_num = "전체"
+
     st.markdown(f"""
 <div style="
     background-color: #d4edda;
@@ -324,7 +329,7 @@ elif st.session_state["step"] == 6:
     font-weight: bold;
     border: 1px solid #c3e6cb;">
     [{the_file.name}] <br>
-    단어장 {dic_num+1} <br>
+    단어장 {real_dic_num} <br>
     {perm_dict_length}개의 {type}
 </div>
 """, unsafe_allow_html=True)
