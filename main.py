@@ -1,6 +1,7 @@
 import random
 import importlib.util
 import math
+import time
 
 import os
 import streamlit as st
@@ -42,14 +43,33 @@ if "step" not in st.session_state:
     st.session_state["step"] = 1
 
 
+
 # 값이 설정되었는지 확인
 if st.session_state["step"] == 1:
+
+    st.markdown(
+    """
+    <style>
+    button {
+        animation: fadeIn 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
     for i in words_category:
         files = import_modules_from_folder(i)
         st.write(f"* {i}")
         files_names = list(files.keys())
 
         for k in files_names:
+            time.sleep(0.05)
             if st.button(f"{files[k].name}", key=f"button_{k}"):
                 st.session_state["file_name"] = files[k].name
                 st.session_state["step"] = 2
@@ -62,6 +82,23 @@ if st.session_state["step"] == 1:
         st.rerun()
 
 elif st.session_state["step"] == 2:
+    st.markdown(
+    """
+    <style>
+    button {
+        animation: fadeIn 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+
     the_file = st.session_state["the_file"]
     file_name = st.session_state["file_name"]
 
@@ -110,8 +147,26 @@ elif st.session_state["step"] == 2:
                 st.rerun()
     
 elif st.session_state["step"] == 3:
+    st.markdown(
+    """
+    <style>
+    button {
+        animation: fadeIn 0.5s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
     the_file = st.session_state["the_file"]
     dic_num = st.session_state["dic_num"]
+
+    st.session_state["auto_state"] = "auto"
 
     
     selected_file = the_file
@@ -145,8 +200,8 @@ elif st.session_state["step"] == 3:
         # 각 열에 버튼 배치
         with col1:
             if st.button("기본", use_container_width=True):
-                st.session_state["word_type"] = 0
                 st.session_state["step"] = 4
+                st.session_state["word_type"] = 0
                 st.rerun()
         with col2:
             if st.button("단어만", use_container_width=True):
@@ -162,6 +217,29 @@ elif st.session_state["step"] == 3:
             if st.button("랜덤", use_container_width=True):
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 3
+                st.rerun()
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            if st.button("기본 [자동]", use_container_width=True):
+                st.session_state["step"] = 4
+                st.session_state["word_type"] = 4
+                st.rerun()
+        with col2:
+            if st.button("단어만 [자동]", use_container_width=True):
+                st.session_state["step"] = 4
+                st.session_state["word_type"] = 5
+                st.rerun()
+        with col3:
+            if st.button("히라가나만 [자동]", use_container_width=True):
+                st.session_state["step"] = 4
+                st.session_state["word_type"] = 6
+                st.rerun()
+        with col4:
+            if st.button("랜덤 [자동]", use_container_width=True):
+                st.session_state["step"] = 4
+                st.session_state["word_type"] = 7
                 st.rerun()
     else:
         st.session_state["word_type"] = 0
@@ -179,6 +257,9 @@ elif st.session_state["step"] == 4:
     now_word_number = st.session_state["now_word_number"]
     perm_dict_length = st.session_state["perm_dict_length"]
     word_type = st.session_state["word_type"]
+    
+    auto_state = st.session_state["auto_state"]
+
 
     if len(dict_keys) == 0:
         st.session_state["step"] = 6
@@ -190,18 +271,18 @@ elif st.session_state["step"] == 4:
 
     if the_file.type == "word":
         if "(" in now_key:
-            if word_type == 0:
+            if word_type == 0 or 4:
                 head, tail = now_key.split("(", 1) 
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-            elif word_type == 1:
+            elif word_type == 1 or 5:
                 head, tail = now_key.split("(", 1) 
                 tail = ""
-            elif word_type == 2:
+            elif word_type == 2 or 6:
                 head, tail = now_key.split("(", 1) 
                 head = ""
                 tail = tail[:-1]
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-            elif word_type == 3:
+            elif word_type == 3 or 7:
                 temp = random.choice([0, 1])
                 if temp == 0:
                     head, tail = now_key.split("(", 1) 
@@ -233,15 +314,34 @@ elif st.session_state["step"] == 4:
 
 
 
-    clicked = st.button("▶ 다음으로", key="hidden_button", use_container_width=True)
+    if word_type >= 4:
+        pause_button = st.button("⏸ 일시정지", key="pause_button", use_container_width=True)
+        resume_button = st.button("▶ 다시 재생", key="resume_button", use_container_width=True)
+    else:
+        next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
 
     del dict_keys[words_random_int]
     st.session_state["dict_keys"] = dict_keys
     st.session_state["dict_length"] = dict_length - 1
     st.session_state["now_key"] = now_key
 
+    if word_type >= 4:
+        if auto_state =="auto" and pause_button:
+            st.session_state["auto_state"] = "pause"
+            auto_state = "pause"
+
+        if auto_state =="pause" and resume_button:
+            st.session_state["auto_state"] = "auto"
+            auto_state = 'auto'
+
+
     st.session_state["step"] = 5
-    
+
+    if word_type >= 4 and auto_state == "auto":
+        time.sleep(2)
+        if auto_state == "auto":
+            st.rerun()
+
 
 
         
@@ -255,9 +355,10 @@ elif st.session_state["step"] == 5:
     dict_length = st.session_state["dict_length"]
     now_word_number = st.session_state["now_word_number"]
     perm_dict_length = st.session_state["perm_dict_length"]
+    word_type = st.session_state["word_type"]
 
+    auto_state = st.session_state["auto_state"]
 
-    # 엔터로 클릭될 버튼 (화면에서는 안 보이게 숨김)
 
     if the_file.type == "word":
         if "(" in now_key:
@@ -282,12 +383,33 @@ elif st.session_state["step"] == 5:
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
-    clicked = st.button("▶ 다음으로", key="hidden_button", use_container_width=True)
+
+    if word_type >= 4:
+        pause_button = st.button("⏸ 일시정지", key="pause_button", use_container_width=True)
+        resume_button = st.button("▶ 다시 재생", key="resume_button", use_container_width=True)
+    else:
+        next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
 
     # 버튼이 클릭되었을 때 상태 전환
-    st.session_state["step"] = 4
     
     st.session_state["now_word_number"] = now_word_number + 1
+
+    if word_type >= 4:
+        if auto_state =="auto" and pause_button:
+            st.session_state["auto_state"] = "pause"
+            auto_state = "pause"
+
+        if auto_state =="pause" and resume_button:
+            st.session_state["auto_state"] = "auto"
+            auto_state = 'auto'
+
+    st.session_state["step"] = 4
+
+    if word_type >= 4 and auto_state == "auto":
+        time.sleep(2)
+        st.rerun()
+
+
     
 elif st.session_state["step"] == 6:
     perm_dict_length = st.session_state["perm_dict_length"]
