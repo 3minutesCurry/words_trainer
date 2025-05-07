@@ -271,18 +271,18 @@ elif st.session_state["step"] == 4:
 
     if the_file.type == "word":
         if "(" in now_key:
-            if word_type == 0 or 4:
+            if word_type == 0 or word_type == 4:
                 head, tail = now_key.split("(", 1) 
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-            elif word_type == 1 or 5:
+            elif word_type == 1 or word_type == 5:
                 head, tail = now_key.split("(", 1) 
                 tail = ""
-            elif word_type == 2 or 6:
+            elif word_type == 2 or word_type == 6:
                 head, tail = now_key.split("(", 1) 
                 head = ""
                 tail = tail[:-1]
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-            elif word_type == 3 or 7:
+            elif word_type == 3 or word_type == 7:
                 temp = random.choice([0, 1])
                 if temp == 0:
                     head, tail = now_key.split("(", 1) 
