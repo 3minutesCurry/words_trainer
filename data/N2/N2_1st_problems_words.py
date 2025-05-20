@@ -1,4 +1,4 @@
-name = "JLPT N2 1단원 단어"
+name = "JLPT N2 문제 1단원 단어"
 type = "word"
 
 nihongo_1 = {
