@@ -1,5 +1,6 @@
 name = "JLPT N2 3단원 경어, 사역, 수동, 수수, 지시어, 접속어 문장"
 type = "sentence"
+order = 2
 
 nihongo_1 = {
     "ご飯をあがる": "식사를 하시다",

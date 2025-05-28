@@ -1,7 +1,8 @@
-name = "JLPT N2 오답노트"
+name = "JLPT N2 오답노트 2단원"
 type = "word"
+order = 3
 
-nihongo_1_8 = {
+nihongo_1 = {
     "内(うち)": "안(쪽), 내부, 속",
     "井戸(いど)": "우물",
     "安否(あんぴ)": "안부, 안위",

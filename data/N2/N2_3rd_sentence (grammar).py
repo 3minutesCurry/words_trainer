@@ -1,5 +1,6 @@
 name = "JLPT N2 3단원 문법 문장"
 type = "sentence"
+order = 2
 
 nihongo_1 = {
     "悩んだあげく": "고민한 끝에",

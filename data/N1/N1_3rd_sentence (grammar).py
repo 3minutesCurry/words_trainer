@@ -1,5 +1,7 @@
 name = "JLPT N1 3단원 문법 문장"
 type = "sentence"
+order = 2
+
 
 nihongo_1 = {
 	"どんな悪人であろうと(どんなあくにんであろうと)": "어떤 악인이더라도",

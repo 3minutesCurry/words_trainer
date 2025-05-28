@@ -1,5 +1,6 @@
 name = "JLPT N5 1단원 단어 (1)"
 type = "word"
+order = 2
 
 nihongo_1 = {
     "間(あいだ)" : "사이",

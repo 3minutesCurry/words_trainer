@@ -63,18 +63,26 @@ if st.session_state["step"] == 1:
     """,
     unsafe_allow_html=True
     )
+
+    
+
     for i in words_category:
         files = import_modules_from_folder(i)
         st.write(f"* {i}")
         files_names = list(files.keys())
+        file_order = 1
 
         for k in files_names:
             time.sleep(0.05)
+            if files[k].order != file_order:
+                st.markdown("")
+                file_order = files[k].order
             if st.button(f"{files[k].name}", key=f"button_{k}"):
                 st.session_state["file_name"] = files[k].name
                 st.session_state["step"] = 2
                 st.session_state["the_file"] = files[k]
                 st.rerun()
+
     
     st.write("---------------------------------------------")
     if st.button("거리 측정기"):
