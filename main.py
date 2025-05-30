@@ -2,6 +2,7 @@ import random
 import importlib.util
 import math
 import time
+import re
 
 import os
 import streamlit as st
@@ -227,28 +228,32 @@ elif st.session_state["step"] == 3:
                 st.session_state["word_type"] = 3
                 st.rerun()
 
+
         col1, col2, col3, col4 = st.columns(4)
 
+        # 각 열에 버튼 배치
         with col1:
-            if st.button("기본 [자동]", use_container_width=True):
+            if st.button("기본 (괄호제거)", use_container_width=True):
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 4
                 st.rerun()
         with col2:
-            if st.button("단어만 [자동]", use_container_width=True):
+            if st.button("단어만 (괄호제거)", use_container_width=True):
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 5
                 st.rerun()
         with col3:
-            if st.button("히라가나만 [자동]", use_container_width=True):
+            if st.button("히라가나만 (괄호제거)", use_container_width=True):
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 6
                 st.rerun()
         with col4:
-            if st.button("랜덤 [자동]", use_container_width=True):
+            if st.button("랜덤 (괄호제거)", use_container_width=True):
                 st.session_state["step"] = 4
                 st.session_state["word_type"] = 7
                 st.rerun()
+
+       
     else:
         st.session_state["word_type"] = 0
         st.session_state["step"] = 4
@@ -277,26 +282,32 @@ elif st.session_state["step"] == 4:
     words_random_int = random.randrange(0, len(dict_keys))
     now_key = dict_keys[words_random_int]
 
+    temp_now_key = now_key
+    
     if the_file.type == "word":
+        if "[" in now_key:
+            if word_type >= 4:
+                temp_now_key = re.sub(r'\[[^\[\]]*\]', '', now_key)
+
         if "(" in now_key:
             if word_type == 0 or word_type == 4:
-                head, tail = now_key.split("(", 1) 
+                head, tail = temp_now_key.split("(", 1) 
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
             elif word_type == 1 or word_type == 5:
-                head, tail = now_key.split("(", 1) 
+                head, tail = temp_now_key.split("(", 1) 
                 tail = ""
             elif word_type == 2 or word_type == 6:
-                head, tail = now_key.split("(", 1) 
+                head, tail = temp_now_key.split("(", 1) 
                 head = ""
                 tail = tail[:-1]
                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
             elif word_type == 3 or word_type == 7:
                 temp = random.choice([0, 1])
                 if temp == 0:
-                    head, tail = now_key.split("(", 1) 
+                    head, tail = temp_now_key.split("(", 1) 
                     tail = ""
                 elif temp == 1:
-                    head, tail = now_key.split("(", 1) 
+                    head, tail = temp_now_key.split("(", 1) 
                     head = ""
                     tail = tail[:-1]
                     tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
@@ -322,33 +333,20 @@ elif st.session_state["step"] == 4:
 
 
 
-    if word_type >= 4:
-        pause_button = st.button("⏸ 일시정지", key="pause_button", use_container_width=True)
-        resume_button = st.button("▶ 다시 재생", key="resume_button", use_container_width=True)
-    else:
-        next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
+    
+    next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
 
     del dict_keys[words_random_int]
     st.session_state["dict_keys"] = dict_keys
     st.session_state["dict_length"] = dict_length - 1
     st.session_state["now_key"] = now_key
 
-    if word_type >= 4:
-        if auto_state =="auto" and pause_button:
-            st.session_state["auto_state"] = "pause"
-            auto_state = "pause"
 
-        if auto_state =="pause" and resume_button:
-            st.session_state["auto_state"] = "auto"
-            auto_state = 'auto'
 
 
     st.session_state["step"] = 5
 
-    if word_type >= 4 and auto_state == "auto":
-        time.sleep(2)
-        if auto_state == "auto":
-            st.rerun()
+
 
 
 
@@ -392,30 +390,16 @@ elif st.session_state["step"] == 5:
 
 
 
-    if word_type >= 4:
-        pause_button = st.button("⏸ 일시정지", key="pause_button", use_container_width=True)
-        resume_button = st.button("▶ 다시 재생", key="resume_button", use_container_width=True)
-    else:
-        next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
+    next_button = st.button("▶ 다음 단어", key="next_button", use_container_width=True)
 
     # 버튼이 클릭되었을 때 상태 전환
     
     st.session_state["now_word_number"] = now_word_number + 1
 
-    if word_type >= 4:
-        if auto_state =="auto" and pause_button:
-            st.session_state["auto_state"] = "pause"
-            auto_state = "pause"
-
-        if auto_state =="pause" and resume_button:
-            st.session_state["auto_state"] = "auto"
-            auto_state = 'auto'
 
     st.session_state["step"] = 4
 
-    if word_type >= 4 and auto_state == "auto":
-        time.sleep(2)
-        st.rerun()
+ 
 
 
     
