@@ -156,6 +156,16 @@ elif st.session_state["step"] == 2:
                 st.rerun()
     
 elif st.session_state["step"] == 3:
+    st.markdown("""
+    <style>
+    div.stButton > button {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 2.5em;
+    }
+    </style>
+""", unsafe_allow_html=True)
     st.markdown(
     """
     <style>
