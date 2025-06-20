@@ -293,7 +293,7 @@ elif st.session_state["step"] == 4:
     now_key = dict_keys[words_random_int]
 
     temp_now_key = now_key
-    
+
     if the_file.type == "word":
         if "[" in now_key:
             if word_type >= 4:
@@ -325,8 +325,13 @@ elif st.session_state["step"] == 4:
             head = now_key
             tail = ""
     else:
-        head = now_key
-        tail = ""
+        if "(" in now_key:
+            head, tail = temp_now_key.split("(", 1) 
+            tail = ""
+        else:
+            head = temp_now_key
+            tail = ""
+    
 
     if dic_num == "all":
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
@@ -381,11 +386,16 @@ elif st.session_state["step"] == 5:
             head, tail = now_key.split("(", 1) 
             tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
         else:
-            head = now_key
+            head, tail = now_key.split("(", 1) 
             tail = ""
     else:
-        head = now_key
-        tail = ""
+        if "(" in now_key:
+            head, tail = now_key.split("(", 1) 
+            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+        else:
+            head = now_key
+            tail = ""
+
 
     if dic_num == "all":
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
