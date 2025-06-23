@@ -386,7 +386,7 @@ elif st.session_state["step"] == 5:
             head, tail = now_key.split("(", 1) 
             tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
         else:
-            head, tail = now_key.split("(", 1) 
+            head = now_key
             tail = ""
     else:
         if "(" in now_key:
