@@ -144,7 +144,7 @@ elif st.session_state["step"] == 2:
     the_file = st.session_state["the_file"]
     file_name = st.session_state["file_name"]
 
-    st.success(f"[{file_name}]를 선택하셨습니다!")
+    st.success(f"{file_name}")
     
     dict_count = sum(
         1 for k, v in vars(the_file).items()
