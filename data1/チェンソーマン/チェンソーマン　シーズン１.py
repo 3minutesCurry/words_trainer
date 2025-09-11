@@ -1,4 +1,4 @@
-name = "체인소맨 시즌 1"
+name = "チェンソーマン　シーズン１"
 type = "word"
 order = 1
 
