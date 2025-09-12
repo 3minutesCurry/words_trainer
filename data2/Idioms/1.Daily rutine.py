@@ -202,7 +202,9 @@ words_2 = {
     # turn in for the night
     "I think I’ll turn in for the night now.": "이제 잠자리에 들어야겠다",
     "He turned in for the night after reading a book.": "그는 책을 읽고 잠자리에 들었다",
+}
 
+words_3 = {
     # go to bed
     "I usually go to bed at midnight.": "나는 보통 자정에 잠자리에 든다",
     "The kids went to bed after finishing their homework.": "아이들은 숙제를 끝내고 잠자리에 들었다",

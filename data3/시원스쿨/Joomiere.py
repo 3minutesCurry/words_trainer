@@ -52,13 +52,21 @@ words_1 = {
     "cuisinier / cuisinière": "요리사(남자) / 요리사(여자)",
     "journaliste / journaliste": "기자(남자) / 기자(여자)",
 
-    "soleil / lune": "태양 / 달",
-    "arbre / fleur": "나무 / 꽃",
-    "bateau / mer": "배 / 바다",
-    "livre / maison": "책 / 집",
-    "ciel / terre": "하늘 / 땅",
-    "vin / eau": "와인 / 물",
-    "courage / patience": "용기 / 인내",
+    "soleil": "태양",
+    "lune": "달",
+    "arbre": "나무",
+    "fleur": "꽃",
+    "bateau": "배",
+    "mer": "바다",
+    "livre": "책",
+    "maison": "집",
+    "ciel": "하늘",
+    "terre": "땅",
+    "vin": "와인",
+    "eau": "물",
+    "courage": "용기",
+    "patience": "인내",
+
 
     "livre / livres": "책 / 책들",
     "ami / amis": "친구 / 친구들",
@@ -89,13 +97,31 @@ words_1 = {
     "les coiffeurs / les coiffeuses": "남자 미용사들 / 여자 미용사들",
     "le Canadien / la Canadienne": "캐나다 남자 / 캐나다 여자",
     "les Canadiens / les Canadiennes": "캐나다 남자들 / 캐나다 여자들",
+    
+    "du pain": "빵",
+    "du fromage": "치즈",
+    "du beurre": "버터",
 
-    "du pain / du fromage / du beurre": "빵 / 치즈 / 버터",
-    "de la viande / de la salade / de la glace": "고기 / 샐러드 / 아이스크림",
-    "du sel / du sucre / du poivre": "소금 / 설탕 / 후추",
-    "du café / du lait / de la bière": "커피 / 우유 / 맥주",
-    "de l'argent / de l'eau / de l'huile": "돈 / 물 / 기름",
-    "du courage / de la chance": "용기 / 운",
-    "des épinards / des pâtes": "시금치 / 파스타",
+    "de la viande": "고기",
+    "de la salade": "샐러드",
+    "de la glace": "아이스크림",
+
+    "du sel": "소금",
+    "du sucre": "설탕",
+    "du poivre": "후추",
+
+    "du café": "커피",
+    "du lait": "우유",
+    "de la bière": "맥주",
+
+    "de l'argent": "돈",
+    "de l'eau": "물",
+    "de l'huile": "기름",
+
+    "du courage": "용기",
+    "de la chance": "운",
+
+    "des épinards": "시금치",
+    "des pâtes": "파스타",
 }
 
