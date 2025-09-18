@@ -923,11 +923,7 @@ elif st.session_state["step"] == 24:
             }}
 
         </style>
-        
-        <div style="display:flex; justify-content:center;">
-            <div style="text-align:center; font-size:40px; color:white;">
-                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
-            </div>
+        <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             u.lang = 'en-US';
@@ -941,16 +937,26 @@ elif st.session_state["step"] == 24:
             }}, 1000);
             " 
             style="
-            padding-left:15px; 
             background:transparent; 
             border:0;
             margin:0;
-            font-size:30px;"></button>
+            font-size:30px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(19, 23, 32);
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            ">
+          </button>
         </div>
         """,
-        height=None,
-        scrolling=True
+        height=55,
     )
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+        <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+        </p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px; visibility:hidden;">빈칸</p>', unsafe_allow_html=True)
 
 
@@ -1019,11 +1025,7 @@ elif st.session_state["step"] == 25:
             }}
 
         </style>
-        
-        <div style="display:flex; justify-content:center;">
-            <div style="text-align:center; font-size:40px; color:white;">
-                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
-            </div>
+        <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             u.lang = 'en-US';
@@ -1037,15 +1039,26 @@ elif st.session_state["step"] == 25:
             }}, 1000);
             " 
             style="
-            padding-left:15px; 
             background:transparent; 
             border:0;
             margin:0;
-            font-size:30px;"></button>
+            font-size:30px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(19, 23, 32);
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            ">
+          </button>
         </div>
         """,
-        height=50,
+        height=55,
     )
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+        <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+        </p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
@@ -1442,11 +1455,7 @@ elif st.session_state["step"] == 34:
             }}
 
         </style>
-        
-        <div style="display:flex; justify-content:center;">
-            <div style="text-align:center; font-size:40px; color:white;">
-                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
-            </div>
+        <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             u.lang = 'fr-FR';
@@ -1460,16 +1469,26 @@ elif st.session_state["step"] == 34:
             }}, 1000);
             " 
             style="
-            padding-left:15px; 
             background:transparent; 
             border:0;
             margin:0;
-            font-size:30px;"></button>
+            font-size:30px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(19, 23, 32);
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            ">
+          </button>
         </div>
         """,
-        height=50,
+        height=55,
     )
-    
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+        <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+        </p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px; visibility:hidden;">빈칸</p>', unsafe_allow_html=True)
 
 
@@ -1550,11 +1569,7 @@ elif st.session_state["step"] == 35:
             }}
 
         </style>
-        
-        <div style="display:flex; justify-content:center;">
-            <div style="text-align:center; font-size:40px; color:white;">
-                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
-            </div>
+        <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             u.lang = 'fr-FR';
@@ -1568,15 +1583,26 @@ elif st.session_state["step"] == 35:
             }}, 1000);
             " 
             style="
-            padding-left:15px; 
             background:transparent; 
             border:0;
             margin:0;
-            font-size:30px;"></button>
+            font-size:30px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            margin: 0px;
+            width: 20%;
+            cursor: pointer;
+            background-color: rgb(19, 23, 32);
+            border: 1px solid rgba(250, 250, 250, 0.2);
+            ">
+          </button>
         </div>
         """,
-        height=50,
+        height=55,
     )
+    st.markdown(f'''<p style="text-align:center; font-size:40px;">
+        <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
+        </p>''', unsafe_allow_html=True)
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
