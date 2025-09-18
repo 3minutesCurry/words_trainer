@@ -168,7 +168,7 @@ words_3 = {
     "He’s freshly minted after selling his app.": "그는 앱을 팔고 새롭게 돈 많은 사람이 됐다.",
     "She married a minted businessman.": "그녀는 돈 많은 사업가와 결혼했다.",
 
-    "The gala was attended by many well-heeled guests.": "그 가에는 많은 부유한 손님들이 참석했다.",
+    "The gala was attended by many well-heeled guests.": "그 경축 행사에는 많은 부유한 손님들이 참석했다.",
     "He’s well-heeled enough to travel first class all the time.": "그는 늘 일등석으로 여행할 만큼 부유하다.",
 
     "We need to economize if we want to buy a house.": "집을 사려면 절약해야 한다.",

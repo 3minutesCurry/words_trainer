@@ -1,5 +1,5 @@
-name = "The Pitt"
-type = "word"
+name = "Season 1"
+type = "TV show"
 order = 1
 
 words_1 = {

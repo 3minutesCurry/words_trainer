@@ -3,8 +3,12 @@ import importlib.util
 import math
 import time
 import re
+import json
 
 import os
+import streamlit as st
+import streamlit.components.v1 as components
+
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -41,6 +45,7 @@ def import_modules_from_folder(base_path,folder_name):
 st.markdown(
     """
     <style>
+ 
     button {
         animation: fadeIn 0.5s ease-in-out forwards;
         opacity: 0;
@@ -710,10 +715,16 @@ elif st.session_state["step"] == 22:
         m = 1
         for k in col_dict[i]:
             with k:
-                if st.button(f"{i*4+m}번 단어장", key=f"{i*4+m}", use_container_width=True):
-                    st.session_state["dic_num"] = i*4+m - 1 
-                    st.session_state["step"] = 23
-                    st.rerun()
+                if the_file.type == "word":
+                    if st.button(f"{i*4+m}번 단어장", key=f"{i*4+m}", use_container_width=True):
+                        st.session_state["dic_num"] = i*4+m - 1 
+                        st.session_state["step"] = 23
+                        st.rerun()
+                elif the_file.type == "TV show":
+                    if st.button(f"Episode {i*4+m}", key=f"{i*4+m}", use_container_width=True):
+                        st.session_state["dic_num"] = i*4+m - 1 
+                        st.session_state["step"] = 23
+                        st.rerun()
             m = m + 1
 
     col1, col2, col3, col4 = st.columns(4) 
@@ -721,10 +732,17 @@ elif st.session_state["step"] == 22:
 
     for i in range(dict_count_divided_by_4_rest):
         with col_list[i]:
-            if st.button(f"{dict_count_divided_by_4*4+i+1}번 단어장", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
-                st.session_state["dic_num"] = dict_count_divided_by_4*4+i
-                st.session_state["step"] = 23
-                st.rerun()
+            if the_file.type == "word":
+                if st.button(f"{dict_count_divided_by_4*4+i+1}번 단어장", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
+                    st.session_state["dic_num"] = dict_count_divided_by_4*4+i
+                    st.session_state["step"] = 23
+                    st.rerun()
+            elif the_file.type == "TV show":
+                if st.button(f"Episode {dict_count_divided_by_4*4+i+1}", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
+                    st.session_state["dic_num"] = dict_count_divided_by_4*4+i
+                    st.session_state["step"] = 23
+                    st.rerun()
+            
     
 elif st.session_state["step"] == 23:
     st.markdown("""
@@ -843,31 +861,31 @@ elif st.session_state["step"] == 24:
             if word_type >= 4:
                 temp_now_key = re.sub(r'\[[^\[\]]*\]', '', now_key)
 
-        if "(" in now_key:
-            if word_type == 0 or word_type == 4:
-                head, tail = temp_now_key.split("(", 1) 
-                tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-            elif word_type == 1 or word_type == 5:
-                head, tail = temp_now_key.split("(", 1) 
-                tail = ""
-            elif word_type == 2 or word_type == 6:
-                head, tail = temp_now_key.split("(", 1) 
-                head = ""
-                tail = tail[:-1]
-                tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-            elif word_type == 3 or word_type == 7:
-                temp = random.choice([0, 1])
-                if temp == 0:
-                    head, tail = temp_now_key.split("(", 1) 
-                    tail = ""
-                elif temp == 1:
-                    head, tail = temp_now_key.split("(", 1) 
-                    head = ""
-                    tail = tail[:-1]
-                    tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
+        # if "(" in now_key:
+        #     if word_type == 0 or word_type == 4:
+        #         head, tail = temp_now_key.split("(", 1) 
+        #         tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+        #     elif word_type == 1 or word_type == 5:
+        #         head, tail = temp_now_key.split("(", 1) 
+        #         tail = ""
+        #     elif word_type == 2 or word_type == 6:
+        #         head, tail = temp_now_key.split("(", 1) 
+        #         head = ""
+        #         tail = tail[:-1]
+        #         tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
+        #     elif word_type == 3 or word_type == 7:
+        #         temp = random.choice([0, 1])
+        #         if temp == 0:
+        #             head, tail = temp_now_key.split("(", 1) 
+        #             tail = ""
+        #         elif temp == 1:
+        #             head, tail = temp_now_key.split("(", 1) 
+        #             head = ""
+        #             tail = tail[:-1]
+        #             tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
+        # else:
+        head = now_key
+        tail = ""
     else:
         if "(" in now_key:
             head, tail = temp_now_key.split("(", 1) 
@@ -885,9 +903,54 @@ elif st.session_state["step"] == 24:
 
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'''<p style="text-align:center; font-size:40px;">
-    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
-</p>''', unsafe_allow_html=True)
+    pronounce_text = head.replace("'", "\\'")
+
+   
+    components.html(
+        f"""
+        <style>
+            .speakButton::after{{
+                background-image: url("https://ssl.pstatic.net/dicimg/gdic/style/202509051231/img/sp_darkmode.png");
+                background-position: -309px -276px;
+                width: 22px;
+                height: 20px;
+                content: "";                /* ← 가상 요소는 content가 꼭 필요 */
+                display: inline-block;
+                background-size: 421px 412px;
+            }} 
+            .speakButton.active::after {{
+                background-position: -24px -305px;
+            }}
+
+        </style>
+        
+        <div style="display:flex; justify-content:center;">
+            <div style="text-align:center; font-size:40px; color:white;">
+                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
+            </div>
+          <button class="speakButton" onclick="
+            var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            u.lang = 'en-US';
+            u.rate = 1.0;   // 속도(0.1~10)
+            u.pitch = 1.0;  // 피치(0~2)
+            speechSynthesis.speak(u);
+            this.classList.toggle('active');
+            var self = this;  // 버튼 참조를 저장
+            setTimeout(function(){{
+                self.classList.remove('active');  // 1초 후 제거
+            }}, 1000);
+            " 
+            style="
+            padding-left:15px; 
+            background:transparent; 
+            border:0;
+            margin:0;
+            font-size:30px;"></button>
+        </div>
+        """,
+        height=None,
+        scrolling=True
+    )
     st.markdown(f'<p style="text-align:center; font-size:40px; visibility:hidden;">빈칸</p>', unsafe_allow_html=True)
 
 
@@ -925,20 +988,9 @@ elif st.session_state["step"] == 25:
     auto_state = st.session_state["auto_state"]
 
 
-    if the_file.type == "word":
-        if "(" in now_key:
-            head, tail = now_key.split("(", 1) 
-            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
-    else:
-        if "(" in now_key:
-            head, tail = now_key.split("(", 1) 
-            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
+    
+    head = now_key
+    tail = ""
 
 
     if dic_num == "all":
@@ -947,9 +999,53 @@ elif st.session_state["step"] == 25:
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'''<p style="text-align:center; font-size:40px;">
-    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
-</p>''', unsafe_allow_html=True)
+    pronounce_text = head.replace("'", "\\'")
+
+   
+    components.html(
+        f"""
+        <style>
+            .speakButton::after{{
+                background-image: url("https://ssl.pstatic.net/dicimg/gdic/style/202509051231/img/sp_darkmode.png");
+                background-position: -309px -276px;
+                width: 22px;
+                height: 20px;
+                content: "";                /* ← 가상 요소는 content가 꼭 필요 */
+                display: inline-block;
+                background-size: 421px 412px;
+            }} 
+            .speakButton.active::after {{
+                background-position: -24px -305px;
+            }}
+
+        </style>
+        
+        <div style="display:flex; justify-content:center;">
+            <div style="text-align:center; font-size:40px; color:white;">
+                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
+            </div>
+          <button class="speakButton" onclick="
+            var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            u.lang = 'en-US';
+            u.rate = 1.0;   // 속도(0.1~10)
+            u.pitch = 1.0;  // 피치(0~2)
+            speechSynthesis.speak(u);
+            this.classList.toggle('active');
+            var self = this;  // 버튼 참조를 저장
+            setTimeout(function(){{
+                self.classList.remove('active');  // 1초 후 제거
+            }}, 1000);
+            " 
+            style="
+            padding-left:15px; 
+            background:transparent; 
+            border:0;
+            margin:0;
+            font-size:30px;"></button>
+        </div>
+        """,
+        height=50,
+    )
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
@@ -1277,56 +1373,103 @@ elif st.session_state["step"] == 34:
 
     temp_now_key = now_key
 
-    if the_file.type == "word":
-        if "[" in now_key:
-            if word_type >= 4:
-                temp_now_key = re.sub(r'\[[^\[\]]*\]', '', now_key)
+    # if the_file.type == "word":
+    #     if "[" in now_key:
+    #         if word_type >= 4:
+    #             temp_now_key = re.sub(r'\[[^\[\]]*\]', '', now_key)
 
-        if "(" in now_key:
-            if word_type == 0 or word_type == 4:
-                head, tail = temp_now_key.split("(", 1) 
-                tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-            elif word_type == 1 or word_type == 5:
-                head, tail = temp_now_key.split("(", 1) 
-                tail = ""
-            elif word_type == 2 or word_type == 6:
-                head, tail = temp_now_key.split("(", 1) 
-                head = ""
-                tail = tail[:-1]
-                tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-            elif word_type == 3 or word_type == 7:
-                temp = random.choice([0, 1])
-                if temp == 0:
-                    head, tail = temp_now_key.split("(", 1) 
-                    tail = ""
-                elif temp == 1:
-                    head, tail = temp_now_key.split("(", 1) 
-                    head = ""
-                    tail = tail[:-1]
-                    tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
-    else:
-        if "(" in now_key:
-            head, tail = temp_now_key.split("(", 1) 
-            tail = ""
-        else:
-            head = temp_now_key
-            tail = ""
+    #     if "(" in now_key:
+    #         if word_type == 0 or word_type == 4:
+    #             head, tail = temp_now_key.split("(", 1) 
+    #             tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    #         elif word_type == 1 or word_type == 5:
+    #             head, tail = temp_now_key.split("(", 1) 
+    #             tail = ""
+    #         elif word_type == 2 or word_type == 6:
+    #             head, tail = temp_now_key.split("(", 1) 
+    #             head = ""
+    #             tail = tail[:-1]
+    #             tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
+    #         elif word_type == 3 or word_type == 7:
+    #             temp = random.choice([0, 1])
+    #             if temp == 0:
+    #                 head, tail = temp_now_key.split("(", 1) 
+    #                 tail = ""
+    #             elif temp == 1:
+    #                 head, tail = temp_now_key.split("(", 1) 
+    #                 head = ""
+    #                 tail = tail[:-1]
+    #                 tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>" +tail + "</span>"
+    #     else:
+    #         head = now_key
+    #         tail = ""
+    # else:
+    #     if "(" in now_key:
+    #         head, tail = temp_now_key.split("(", 1) 
+    #         tail = ""
+    #     else:
+    #         head = temp_now_key
+    #         tail = ""
+    head = now_key
+    tail = ""
     
-
     if dic_num == "all":
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
     else:
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
-
+    
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'''<p style="text-align:center; font-size:40px;">
-    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
-</p>''', unsafe_allow_html=True)
+    
+    pronounce_text = head.replace("'", "\\'")
+
+   
+    components.html(
+        f"""
+        <style>
+            .speakButton::after{{
+                background-image: url("https://ssl.pstatic.net/dicimg/gdic/style/202509051231/img/sp_darkmode.png");
+                background-position: -309px -276px;
+                width: 22px;
+                height: 20px;
+                content: "";                /* ← 가상 요소는 content가 꼭 필요 */
+                display: inline-block;
+                background-size: 421px 412px;
+            }} 
+            .speakButton.active::after {{
+                background-position: -24px -305px;
+            }}
+
+        </style>
+        
+        <div style="display:flex; justify-content:center;">
+            <div style="text-align:center; font-size:40px; color:white;">
+                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
+            </div>
+          <button class="speakButton" onclick="
+            var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            u.lang = 'fr-FR';
+            u.rate = 1.0;   // 속도(0.1~10)
+            u.pitch = 1.0;  // 피치(0~2)
+            speechSynthesis.speak(u);
+            this.classList.toggle('active');
+            var self = this;  // 버튼 참조를 저장
+            setTimeout(function(){{
+                self.classList.remove('active');  // 1초 후 제거
+            }}, 1000);
+            " 
+            style="
+            padding-left:15px; 
+            background:transparent; 
+            border:0;
+            margin:0;
+            font-size:30px;"></button>
+        </div>
+        """,
+        height=50,
+    )
+    
     st.markdown(f'<p style="text-align:center; font-size:40px; visibility:hidden;">빈칸</p>', unsafe_allow_html=True)
 
 
@@ -1364,31 +1507,76 @@ elif st.session_state["step"] == 35:
     auto_state = st.session_state["auto_state"]
 
 
-    if the_file.type == "word":
-        if "(" in now_key:
-            head, tail = now_key.split("(", 1) 
-            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
-    else:
-        if "(" in now_key:
-            head, tail = now_key.split("(", 1) 
-            tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
-        else:
-            head = now_key
-            tail = ""
+    # if the_file.type == "word":
+    #     if "(" in now_key:
+    #         head, tail = now_key.split("(", 1) 
+    #         tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    #     else:
+    #         head = now_key
+    #         tail = ""
+    # else:
+    #     if "(" in now_key:
+    #         head, tail = now_key.split("(", 1) 
+    #         tail = "<span style='display: inline-block; max-width: 100%; word-break: break-word;'>(" +tail + "</span>"
+    #     else:
+    #         head = now_key
+    #         tail = ""
 
-
+    head = now_key
+    tail = ""
     if dic_num == "all":
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name} 전체 ]</p>', unsafe_allow_html=True)
     else:
         st.markdown(f'<p style="text-align:center; font-size:20px;">[ {the_file.name}   {dic_num+1} ]</p>', unsafe_allow_html=True)
 
     st.markdown(f'<p style="text-align:center; font-size:30px;">{now_word_number}/{perm_dict_length}</p>', unsafe_allow_html=True)
-    st.markdown(f'''<p style="text-align:center; font-size:40px;">
-    <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>{tail}
-</p>''', unsafe_allow_html=True)
+    pronounce_text = head.replace("'", "\\'")
+
+   
+    components.html(
+        f"""
+        <style>
+            .speakButton::after{{
+                background-image: url("https://ssl.pstatic.net/dicimg/gdic/style/202509051231/img/sp_darkmode.png");
+                background-position: -309px -276px;
+                width: 22px;
+                height: 20px;
+                content: "";                /* ← 가상 요소는 content가 꼭 필요 */
+                display: inline-block;
+                background-size: 421px 412px;
+            }} 
+            .speakButton.active::after {{
+                background-position: -24px -305px;
+            }}
+
+        </style>
+        
+        <div style="display:flex; justify-content:center;">
+            <div style="text-align:center; font-size:40px; color:white;">
+                <span style="display: inline-block; max-width: 100%; word-break: break-word;">{head}</span>
+            </div>
+          <button class="speakButton" onclick="
+            var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            u.lang = 'fr-FR';
+            u.rate = 1.0;   // 속도(0.1~10)
+            u.pitch = 1.0;  // 피치(0~2)
+            speechSynthesis.speak(u);
+            this.classList.toggle('active');
+            var self = this;  // 버튼 참조를 저장
+            setTimeout(function(){{
+                self.classList.remove('active');  // 1초 후 제거
+            }}, 1000);
+            " 
+            style="
+            padding-left:15px; 
+            background:transparent; 
+            border:0;
+            margin:0;
+            font-size:30px;"></button>
+        </div>
+        """,
+        height=50,
+    )
     st.markdown(f'<p style="text-align:center; font-size:40px;">{dict[now_key]}</p>', unsafe_allow_html=True)
 
 
