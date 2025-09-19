@@ -1,6 +1,6 @@
 name = "2.Money"
 type = "word"
-order = 1
+order = 2
 
 words_1 = {
     "made of money": "돈이 아주 많은",

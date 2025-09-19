@@ -438,3 +438,325 @@ words_4 = {
 }
 
 
+words_5 = {
+    "J’ai un livre.": "나는 책 한 권을 가지고 있다.",
+    "J’ai une voiture.": "나는 자동차를 가지고 있다.",
+
+    "Tu as un frère ?": "너는 형/남동생이 있니?",
+    "Tu as une idée.": "너는 아이디어를 가지고 있다.",
+
+    "Il a un stylo.": "그는 펜 하나를 가지고 있다.",
+    "Elle a une maison.": "그녀는 집을 가지고 있다.",
+
+    "Nous avons un chien.": "우리는 개 한 마리를 가지고 있다.",
+    "Nous avons du temps.": "우리는 시간이 있다.",
+
+    "Vous avez des amis.": "당신(들)은 친구들이 있다.",
+    "Vous avez une question ?": "당신(들)은 질문이 있습니까?",
+
+    "Ils ont deux enfants.": "그들은 아이 둘을 가지고 있다.",
+    "Elles ont des livres.": "그녀들은 책들을 가지고 있다.",
+
+    "J’ai un chat noir.": "나는 검은 고양이 한 마리를 가지고 있다.",
+    "J’ai un livre vert.": "나는 초록색 책 한 권을 가지고 있다.",
+    "Tu as une voiture coréenne.": "너는 한국 자동차를 가지고 있다.",
+    "Il a un petit ordinateur.": "그는 작은 컴퓨터 하나를 가지고 있다.",
+    "Elle a une bonne idée.": "그녀는 좋은 아이디어 하나를 가지고 있다.",
+    "Nous avons un appartement parisien.": "우리는 파리식 아파트 하나를 가지고 있다.",
+
+    "Vous avez beaucoup de papiers.": "당신들은 많은 종이들을 가지고 있다.",
+    "Ils ont un beau rêve.": "그들은 아름다운 꿈을 가지고 있다.",
+    "Elles ont trois enfants.": "그녀들은 세 명의 아이들을 가지고 있다.",
+    "J’ai une montre brune.": "나는 갈색 시계 하나를 가지고 있다.",
+    "Elle a de longs cheveux.": "그녀는 긴 머리카락을 가지고 있다.",
+    "Vous avez de beaux yeux.": "당신은 예쁜 눈을 가지고 있다.",
+
+    "Avez-vous de l’eau ?": "물 있으세요?",
+    "Vous avez du wifi ?": "와이파이 있으세요?",
+    "Tu as des ciseaux ?": "너 가위 있니?",
+    "Avez-vous du coca ?": "콜라 있으세요?",
+    "As-tu une fourchette ?": "너 포크 있니?",
+
+    "A-t-il sa chambre ?": "그는 자기 방이 있나요?",
+    "Ont-elles une boutique ?": "그녀들은 가게가 있나요?",
+    "Est-ce que vous avez des enfants ?": "당신은 아이들이 있습니까?",
+    "Est-ce qu'il a une petite amie ?": "그는 여자 친구가 있나요?",
+    "Est-ce qu'elles ont des jouets ?": "그녀들은 장난감이 있나요?",
+
+    "J'ai trente ans.": "나는 30살이다.",
+    "J'ai 25 ans.": "나는 25살이다.",
+    "As-tu 20 ans ?": "너는 20살이니?",
+    "Il a 40 ans.": "그는 40살이다.",
+    "On a 35 ans.": "우리는 35살이다.",
+
+    "Avez-vous 46 ans ?": "당신은 46살입니까?",
+    "Elles ont 51 ans.": "그녀들은 51살이다.",
+    "Tu as quel âge ?": "너는 몇 살이니?",
+    "Vous avez quel âge?": "당신은 몇 살입니까?",
+    "Il a quel âge ?": "그는 몇 살이니?",
+
+    "J'ai faim.": "나는 배고프다.",
+    "J'ai soif.": "나는 목마르다.",
+    "J'ai sommeil.": "나는 졸리다.",
+    "J'ai froid.": "나는 춥다.",
+    "J'ai chaud.": "나는 덥다.",
+    "J'ai peur.": "나는 두렵다.",
+    "J'ai mal.": "나는 아프다.",
+    "Tu as faim.": "너는 배고프다.",
+    "Il a mal.": "그는 아프다.",
+    "Vous avez froid.": "당신은 춥다.",
+    "Elle a très chaud.": "그녀는 매우 덥다.",
+    "Ils ont très soif.": "그들은 매우 목마르다.",
+
+    "Il y a un livre.": "책이 있다.",
+    "Il y a une table.": "책상이 있다.",
+    "Il y a des garçons.": "소년들이 있다.",
+    "Il y a des filles.": "소녀들이 있다.",
+    "Il y a un problème.": "문제가 있다.",
+    "Il y a une solution.": "해결책이 있다.",
+    "Il y a le Louvre.": "루브르가 있다.",
+    "Il y a la Tour Eiffel.": "에펠탑이 있다.",
+    "Il y a mon frère.": "내 형(오빠, 남동생)이 있다.",
+    "Il y a Camille.": "카밀이 있다.",
+
+    "Il y a la Tour Eiffel à Paris.": "파리에 에펠탑이 있다.",
+    "Il y a la clé dans le sac.": "가방 안에 열쇠가 있다.",
+    "Il y a un livre sur la table.": "책상 위에 책이 있다.",
+    "Il y a un chat sous le lit.": "침대 밑에 고양이가 있다.",
+    "Il y a un garçon à côté de Marie.": "마리 옆에 남자아이가 있다.",
+    "Il y a une voiture entre les maisons.": "집들 사이에 차가 있다.",
+    "Qu'est-ce qu'il y a à Paris ?": "파리에 무엇이 있나요?",
+    "Qu'est-ce qu'il y a dans le sac ?": "가방 안에 무엇이 있나요?",
+
+    "J'aime Paris.": "나는 파리를 사랑한다.",
+    "Je mange une pomme.": "나는 사과를 먹는다.",
+    "Je finis mon travail.": "나는 일을 끝낸다.",
+    "Je choisis mon vêtement.": "나는 내 옷을 고른다.",
+    "Je prends le bus.": "나는 버스를 탄다.",
+    "Je veux du café.": "나는 커피를 원한다.",
+
+    "J'aime Paris.": "나는 파리를 좋아한다.",
+    "J'aime le chocolat.": "나는 초콜릿을 좋아한다.",
+
+    "Tu aimes les chats.": "너는 고양이를 좋아한다.",
+    "Tu aimes le sport.": "너는 운동을 좋아한다.",
+
+    "Il aime la musique.": "그는 음악을 좋아한다.",
+    "Elle aime les fleurs.": "그녀는 꽃을 좋아한다.",
+
+    "Nous aimons voyager.": "우리는 여행하는 것을 좋아한다.",
+    "Nous aimons le vin français.": "우리는 프랑스 와인을 좋아한다.",
+
+    "Vous aimez ce film.": "당신은 이 영화를 좋아한다.",
+    "Vous aimez la mer.": "당신은 바다를 좋아한다.",
+
+    "Ils aiment jouer au football.": "그들은 축구하는 것을 좋아한다.",
+    "Elles aiment danser.": "그녀들은 춤추는 것을 좋아한다.",
+
+    "J'étudie le français.": "나는 프랑스어를 공부한다.",
+    "J'étudie la musique.": "나는 음악을 공부한다.",
+
+    "Tu étudies l'anglais.": "너는 영어를 공부한다.",
+    "Tu étudies la médecine.": "너는 의학을 공부한다.",
+
+    "Il étudie l'histoire.": "그는 역사를 공부한다.",
+    "Elle étudie les mathématiques.": "그녀는 수학을 공부한다.",
+
+    "Nous étudions à la bibliothèque.": "우리는 도서관에서 공부한다.",
+    "Nous étudions la culture française.": "우리는 프랑스 문화를 공부한다.",
+
+    "Vous étudiez le droit.": "당신은 법학을 공부한다.",
+    "Vous étudiez à Paris.": "당신은 파리에서 공부한다.",
+
+    "Ils étudient les sciences.": "그들은 과학을 공부한다.",
+    "Elles étudient la danse.": "그녀들은 무용을 공부한다.",
+
+    "Je mange une orange.": "나는 오렌지를 먹는다.",
+    "Nous mangeons une orange.": "우리는 오렌지를 먹는다.",
+
+    "Tu manges du pain.": "너는 빵을 먹는다.",
+    "Nous mangeons du pain.": "우리는 빵을 먹는다.",
+
+    "Je commence le français.": "나는 프랑스어를 시작한다.",
+    "Nous commençons le français.": "우리는 프랑스어를 시작한다.",
+
+    "Elle commence le travail.": "그녀는 일을 시작한다.",
+    "Nous commençons le travail.": "우리는 일을 시작한다.",
+    "Vous commencez le travail.": "당신(들)은 일을 시작한다.",
+}
+
+words_6 = {
+    "Je finis ce jeu.": "나는 이 게임을 끝낸다.",
+    "Nous finissons ce jeu.": "우리는 이 게임을 끝낸다.",
+
+    "Je choisis un cadeau.": "나는 선물을 고른다.",
+    "Vous choisissez un cadeau.": "당신(들)은 선물을 고른다.",
+
+    "Je réussis.": "나는 성공한다.",
+    "Ils réussissent un examen.": "그들은 시험에 합격한다.",
+
+    "Je finis mes devoirs.": "나는 숙제를 끝낸다.",
+    "Je finis le livre.": "나는 책을 끝낸다.",
+
+    "Tu finis ton travail.": "너는 일을 끝낸다.",
+    "Tu finis la course.": "너는 경주를 끝낸다.",
+
+    "Il finit son café.": "그는 커피를 마친다.",
+    "Elle finit le film.": "그녀는 영화를 끝낸다.",
+
+    "Nous finissons la réunion.": "우리는 회의를 끝낸다.",
+    "Nous finissons le repas.": "우리는 식사를 끝낸다.",
+
+    "Vous finissez vos devoirs.": "당신(들)은 숙제를 끝낸다.",
+    "Vous finissez le projet.": "당신(들)은 프로젝트를 끝낸다.",
+
+    "Ils finissent le match.": "그들은 경기를 끝낸다.",
+    "Elles finissent la chanson.": "그녀들은 노래를 마친다.",
+
+    "Je choisis un livre.": "나는 책을 고른다.",
+    "Je choisis une pomme.": "나는 사과를 고른다.",
+
+    "Tu choisis un vêtement.": "너는 옷을 고른다.",
+    "Tu choisis un film.": "너는 영화를 고른다.",
+
+    "Il choisit un cadeau.": "그는 선물을 고른다.",
+    "Elle choisit une robe.": "그녀는 드레스를 고른다.",
+
+    "Nous choisissons un restaurant.": "우리는 식당을 고른다.",
+    "Nous choisissons une chanson.": "우리는 노래를 고른다.",
+
+    "Vous choisissez un professeur.": "당신(들)은 선생님을 고른다.",
+    "Vous choisissez un livre.": "당신(들)은 책을 고른다.",
+
+    "Ils choisissent un appartement.": "그들은 아파트를 고른다.",
+    "Elles choisissent des fleurs.": "그녀들은 꽃들을 고른다.",
+
+    "Je réussis à l’examen.": "나는 시험에 합격한다.",
+    "Je réussis toujours mes projets.": "나는 항상 내 프로젝트를 성공시킨다.",
+
+    "Tu réussis à l’école.": "너는 학교에서 잘 한다.",
+    "Tu réussis dans ta vie.": "너는 인생에서 성공한다.",
+
+    "Il réussit en sport.": "그는 스포츠에서 성공한다.",
+    "Elle réussit ses études.": "그녀는 학업에 성공한다.",
+
+    "Nous réussissons ensemble.": "우리는 함께 성공한다.",
+    "Nous réussissons ce travail.": "우리는 이 일을 성공시킨다.",
+
+    "Vous réussissez souvent.": "당신(들)은 자주 성공한다.",
+    "Vous réussissez vos examens.": "당신(들)은 시험에 합격한다.",
+
+    "Ils réussissent à trouver une solution.": "그들은 해결책을 찾는 데 성공한다.",
+    "Elles réussissent dans leur carrière.": "그녀들은 그들의 커리어에서 성공한다.",
+
+    "Je prends le métro.": "나는 지하철을 탄다.",
+    "Nous prenons le métro.": "우리는 지하철을 탄다.",
+
+    "Je sais nager.": "나는 수영할 줄 안다.",
+    "Il sait nager.": "그는 수영할 줄 안다.",
+
+    "Je lis un livre.": "나는 책을 읽는다.",
+    "Ils lisent un livre.": "그들은 책을 읽는다.",
+
+    "Je prends le bus.": "나는 버스를 탄다.",
+    "Je prends une photo.": "나는 사진을 찍는다.",
+
+    "Tu prends un taxi.": "너는 택시를 탄다.",
+    "Tu prends du pain.": "너는 빵을 먹는다.",
+
+    "Il prend le train.": "그는 기차를 탄다.",
+    "Elle prend une décision.": "그녀는 결정을 내린다.",
+
+    "Nous prenons le métro.": "우리는 지하철을 탄다.",
+    "Nous prenons un café.": "우리는 커피를 마신다.",
+
+    "Vous prenez le déjeuner.": "당신은 점심을 먹는다.",
+    "Vous prenez des notes.": "당신은 필기를 한다.",
+
+    "Ils prennent le bateau.": "그들은 배를 탄다.",
+    "Elles prennent des vacances.": "그녀들은 휴가를 간다.",
+
+    "Je sais la réponse.": "나는 답을 안다.",
+    "Je sais parler français.": "나는 프랑스어를 할 줄 안다.",
+
+    "Tu sais nager.": "너는 수영을 할 줄 안다.",
+    "Tu sais la vérité.": "너는 진실을 안다.",
+
+    "Il sait lire.": "그는 읽을 줄 안다.",
+    "Elle sait cuisiner.": "그녀는 요리할 줄 안다.",
+
+    "Nous savons chanter.": "우리는 노래할 줄 안다.",
+    "Nous savons la date.": "우리는 날짜를 안다.",
+
+    "Vous savez jouer du piano.": "당신은 피아노를 칠 줄 안다.",
+    "Vous savez la règle.": "당신은 규칙을 안다.",
+
+    "Ils savent danser.": "그들은 춤을 출 줄 안다.",
+    "Elles savent la réponse.": "그녀들은 답을 안다.",
+
+    "Je lis un livre.": "나는 책을 읽는다.",
+    "Je lis le journal.": "나는 신문을 읽는다.",
+
+    "Tu lis une histoire.": "너는 이야기를 읽는다.",
+    "Tu lis une lettre.": "너는 편지를 읽는다.",
+
+    "Il lit un roman.": "그는 소설을 읽는다.",
+    "Elle lit une revue.": "그녀는 잡지를 읽는다.",
+
+    "Nous lisons des articles.": "우리는 기사들을 읽는다.",
+    "Nous lisons ensemble.": "우리는 함께 읽는다.",
+
+    "Vous lisez un poème.": "당신은 시를 읽는다.",
+    "Vous lisez beaucoup.": "당신은 많이 읽는다.",
+
+    "Ils lisent des journaux.": "그들은 신문들을 읽는다.",
+    "Elles lisent des livres.": "그녀들은 책들을 읽는다.",
+
+    "Je vais à Paris.": "나는 파리에 간다.",
+    "Tu vas à Paris.": "너는 파리에 간다.",
+
+    "Il va à Séoul.": "그는 서울에 간다.",
+    "Elle va à Séoul.": "그녀는 서울에 간다.",
+    "On va à Séoul.": "우리는 서울에 간다.",
+
+    "Nous allons à Nice.": "우리는 니스에 간다.",
+    "Vous allez à Nice.": "당신은 니스에 간다.",
+
+    "Ils vont à Lyon.": "그들은 리옹에 간다.",
+    "Elles vont à Lyon.": "그녀들은 리옹에 간다.",
+
+    "Tu vas où ?": "너는 어디에 가니?",
+    "Nous allons où ?": "우리는 어디에 가니?",
+    "Vous allez où ?": "당신은 어디에 가세요?",
+    "Il va où ?": "그는 어디에 가니?",
+    "Ils vont où ?": "그들은 어디에 가니?",
+    "Je vais à la maison.": "나는 집에 간다.",
+    "Il va à la maison.": "그는 집에 간다.",
+    "Ils vont à la maison.": "그들은 집에 간다.",
+
+    "Je vais au cinéma.": "나는 영화관에 간다.",
+    "Je vais à la maison.": "나는 집에 간다.",
+    "Je vais aux toilettes.": "나는 화장실에 간다.",
+    "Je vais à l'école.": "나는 학교에 간다.",
+
+    "Je vais à l'école à pied.": "나는 학교에 걸어서 간다.",
+    "Tu vas à la banque à vélo.": "너는 은행에 자전거로 간다.",
+    "Il va au cinéma en bus.": "그는 영화관에 버스로 간다.",
+    "On va à la maison en voiture.": "우리는 집에 자동차로 간다.",
+    "Nous allons à Paris en train.": "우리는 파리에 기차로 간다.",
+    "Vous allez à la Tour Eiffel en métro.": "당신은 에펠탑에 지하철로 간다.",
+    "Ils vont à Séoul en avion.": "그들은 서울에 비행기로 간다.",
+
+    "Je viens de Paris.": "나는 파리에서 온다.",
+    "Tu viens de Paris.": "너는 파리에서 온다.",
+    "Il vient de Séoul.": "그는 서울에서 온다.",
+    "Nous venons de Séoul.": "우리는 서울에서 온다.",
+    "Vous venez de Lyon.": "당신은 리옹에서 온다.",
+    "Ils viennent de Lyon.": "그들은 리옹에서 온다.",
+
+    "Je viens du cinéma.": "나는 영화관에서 온다.",
+    "Je viens de la maison.": "나는 집에서 온다.",
+    "Je viens des Champs-Élysées.": "나는 샹젤리제에서 온다.",
+    "Je viens de l'école.": "나는 학교에서 온다.",
+}
+

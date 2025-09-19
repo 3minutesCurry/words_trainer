@@ -1,6 +1,6 @@
 name = "3.Food"
 type = "word"
-order = 1
+order = 3
 
 words_1 = {
     "throw together": "급히 준비하다, 대충 만들다",
