@@ -190,7 +190,6 @@ if st.session_state["step"] == 11:
     for k in files_names:
         time.sleep(0.05)
         if files[k].order != file_order:
-            st.markdown("")
             file_order = files[k].order
         if st.button(f"{files[k].name}", key=f"button_{k}"):
             st.session_state["file_name"] = files[k].name
@@ -655,7 +654,6 @@ if st.session_state["step"] == 21:
     for k in files_names:
         time.sleep(0.05)
         if files[k].order != file_order:
-            st.markdown("")
             file_order = files[k].order
         if st.button(f"{files[k].name}", key=f"button_{k}"):
             st.session_state["file_name"] = files[k].name
@@ -1199,7 +1197,6 @@ if st.session_state["step"] == 31:
     for k in files_names:
         time.sleep(0.05)
         if files[k].order != file_order:
-            st.markdown("")
             file_order = files[k].order
         if st.button(f"{files[k].name}", key=f"button_{k}"):
             st.session_state["file_name"] = files[k].name
