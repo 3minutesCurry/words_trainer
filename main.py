@@ -1455,12 +1455,6 @@ elif st.session_state["step"] == 34:
         <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
-
-            let voices = speechSynthesis.getVoices();
-            let voice = voices.find(v => v.lang === 'fr-FR');
-            if (voice) {{
-                u.voice = voice; 
-            }}
             u.lang = 'fr-FR';
             u.rate = 1.0;   // 속도(0.1~10)
             u.pitch = 1.0;  // 피치(0~2)
