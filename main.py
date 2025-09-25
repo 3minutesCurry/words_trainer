@@ -925,7 +925,7 @@ elif st.session_state["step"] == 24:
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             const voices = speechSynthesis.getVoices();
-            const v = voices.find(v => v.lang === 'en-US' && v.name.includes("Allison"));
+            const v = voices.find(v => v.lang === 'en-US');
             if (v) u.voice = v; 
             u.lang = 'en-US';
             u.rate = 1.0;   // 속도(0.1~10)
@@ -1030,7 +1030,7 @@ elif st.session_state["step"] == 25:
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             const voices = speechSynthesis.getVoices();
-            const v = voices.find(v => v.lang === 'en-US' && v.name.includes("Allison"));
+            const v = voices.find(v => v.lang === 'en-US');
             if (v) u.voice = v; 
             u.lang = 'en-US';
             u.rate = 1.0;   // 속도(0.1~10)
@@ -1462,7 +1462,7 @@ elif st.session_state["step"] == 34:
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             const voices = speechSynthesis.getVoices();
-            const v = voices.find(v => v.lang === 'fr-FR' && v.name.includes("Amélie"));
+            const v = voices.find(v => v.lang === 'fr-FR');
             if (v) u.voice = v; 
             u.lang = 'fr-FR';
             u.rate = 1.0;   // 속도(0.1~10)
@@ -1579,7 +1579,7 @@ elif st.session_state["step"] == 35:
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
             const voices = speechSynthesis.getVoices();
-            const v = voices.find(v => v.lang === 'fr-FR' && v.name.includes("Amélie"));
+            const v = voices.find(v => v.lang === 'fr-FR');
             if (v) u.voice = v; 
             u.lang = 'fr-FR';
             u.rate = 1.0;   // 속도(0.1~10)
