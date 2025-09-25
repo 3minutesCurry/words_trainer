@@ -924,6 +924,9 @@ elif st.session_state["step"] == 24:
         <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            const voices = speechSynthesis.getVoices();
+            const v = voices.find(v => v.lang === 'en-US');
+            if (v) u.voice = v; 
             u.lang = 'en-US';
             u.rate = 1.0;   // 속도(0.1~10)
             u.pitch = 1.0;  // 피치(0~2)
@@ -1026,6 +1029,9 @@ elif st.session_state["step"] == 25:
         <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            const voices = speechSynthesis.getVoices();
+            const v = voices.find(v => v.lang === 'en-US');
+            if (v) u.voice = v; 
             u.lang = 'en-US';
             u.rate = 1.0;   // 속도(0.1~10)
             u.pitch = 1.0;  // 피치(0~2)
@@ -1572,6 +1578,9 @@ elif st.session_state["step"] == 35:
         <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            const voices = speechSynthesis.getVoices();
+            const v = voices.find(v => v.lang === 'fr-FR');
+            if (v) u.voice = v; 
             u.lang = 'fr-FR';
             u.rate = 1.0;   // 속도(0.1~10)
             u.pitch = 1.0;  // 피치(0~2)
