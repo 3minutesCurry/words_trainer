@@ -106,7 +106,7 @@ for i in range(3):
  
 
 if st.session_state["lang"] == 0:
-    st.title("단어 연습기")
+    st.title("Beta 단어 연습기")
 elif st.session_state["lang"] == 1:
     st.title("일본어 단어 연습기")
 elif st.session_state["lang"] == 2:
@@ -1455,6 +1455,9 @@ elif st.session_state["step"] == 34:
         <div style="display:flex; justify-content:center; align-items:center;">
           <button class="speakButton" onclick="
             var u = new SpeechSynthesisUtterance('{pronounce_text}');
+            const voices = speechSynthesis.getVoices();
+            const v = voices.find(v => v.lang === 'fr-FR');
+            if (v) u.voice = v; 
             u.lang = 'fr-FR';
             u.rate = 1.0;   // 속도(0.1~10)
             u.pitch = 1.0;  // 피치(0~2)
