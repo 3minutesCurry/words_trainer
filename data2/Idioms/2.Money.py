@@ -251,6 +251,12 @@ words_4 = {
     "She lives a frugal lifestyle.": "그녀는 검소한 생활을 한다.",
     "He’s very frugal with his money.": "그는 돈을 매우 검소하게 쓴다.",
 
+    "The company is facing a cash crunch after the deal fell through.": "그 계약이 무산된 뒤 회사가 자금난을 겪고 있다",
+    "Startups often hit a cash crunch before securing new funding.": "스타트업은 종종 신규 자금을 확보하기 전에 자금난에 부딪힌다",
+
+    "The store had to close early because of slow sales.": "매출이 저조해서 가게가 일찍 문을 닫아야 했다",
+    "Slow sales this quarter forced the team to rethink their strategy.": "이번 분기 저조한 매출 때문에 팀이 전략을 재고해야 했다",
+
     "She puts aside a little money each month.": "그녀는 매달 돈을 조금씩 저축한다.",
     "He put aside his differences to work with her.": "그는 그녀와 일하기 위해 의견 차이를 제쳐두었다.",
 

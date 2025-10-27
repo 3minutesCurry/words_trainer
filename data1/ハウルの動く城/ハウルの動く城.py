@@ -1,4 +1,4 @@
-name = "하울의 움직이는 성"
+name = "ハウルの動く城"
 type = "word"
 order = 1
 

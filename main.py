@@ -106,7 +106,7 @@ for i in range(3):
  
 
 if st.session_state["lang"] == 0:
-    st.title("Beta 단어 연습기")
+    st.title("단어 연습기")
 elif st.session_state["lang"] == 1:
     st.title("일본어 단어 연습기")
 elif st.session_state["lang"] == 2:
@@ -249,21 +249,35 @@ elif st.session_state["step"] == 12:
         m = 1
         for k in col_dict[i]:
             with k:
-                if st.button(f"{i*4+m}번 단어장", key=f"{i*4+m}", use_container_width=True):
-                    st.session_state["dic_num"] = i*4+m - 1 
-                    st.session_state["step"] = 13
-                    st.rerun()
+                if the_file.type == "word":
+                    if st.button(f"{i*4+m}번 단어장", key=f"{i*4+m}", use_container_width=True):
+                        st.session_state["dic_num"] = i*4+m - 1 
+                        st.session_state["step"] = 13
+                        st.rerun()
+                elif the_file.type == "anime":
+                    if st.button(f"{i*4+m} 話", key=f"{i*4+m}", use_container_width=True):
+                        st.session_state["dic_num"] = i*4+m - 1 
+                        st.session_state["step"] = 13
+                        st.rerun()
             m = m + 1
+
+        
 
     col1, col2, col3, col4 = st.columns(4) 
     col_list = [col1, col2, col3, col4]
 
     for i in range(dict_count_divided_by_4_rest):
         with col_list[i]:
-            if st.button(f"{dict_count_divided_by_4*4+i+1}번 단어장", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
-                st.session_state["dic_num"] = dict_count_divided_by_4*4+i
-                st.session_state["step"] = 13
-                st.rerun()
+            if the_file.type == "word":
+                if st.button(f"{dict_count_divided_by_4*4+i+1}번 단어장", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
+                    st.session_state["dic_num"] = dict_count_divided_by_4*4+i
+                    st.session_state["step"] = 13
+                    st.rerun()
+            elif the_file.type == "anime":
+                if st.button(f"{dict_count_divided_by_4*4+i+1} 話", key=f"{dict_count_divided_by_4*4+i+1}", use_container_width=True):
+                    st.session_state["dic_num"] = dict_count_divided_by_4*4+i
+                    st.session_state["step"] = 13
+                    st.rerun()
     
 elif st.session_state["step"] == 13:
     st.markdown("""

@@ -1,5 +1,5 @@
-name = "チェンソーマン　シーズン１"
-type = "word"
+name = "チェンソーマン Season 1"
+type = "anime"
 order = 1
 
 nihongo_1 = {
