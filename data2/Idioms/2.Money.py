@@ -62,7 +62,6 @@ words_1 = {
     "out-and-out": "철저한, 완전한",
     "crook": "사기꾼",
     "on the way": "오는 중, 진행 중",
-    "up to one’s ears in debt": "빚에 파묻힌",
     "bring home the bacon": "생계를 꾸리다",
     "put food on the table": "식구들을 먹여 살리다",
     "keep the wolf from the table": "굶주림을 면하다",
@@ -78,8 +77,8 @@ words_2 = {
     "make a bundle": "큰 수익을 얻다",
     "make a mint": "큰돈을 벌다",
     "flip": "싼값에 사서 수리 후 되팔다",
-    "make a big": "성공하다",
-    "born with silver spoon in one’s mouth": "부유한 집에서 태어나다",
+    "make it big": "성공하다",
+    "born with a silver spoon in one’s mouth": "부유한 집에서 태어나다",
     "dirt-poor": "몹시 가난한",
     "strike gold": "큰 성과를 얻다",
     "decent": "괜찮은, 품위 있는",
@@ -257,6 +256,13 @@ words_4 = {
     "The store had to close early because of slow sales.": "매출이 저조해서 가게가 일찍 문을 닫아야 했다",
     "Slow sales this quarter forced the team to rethink their strategy.": "이번 분기 저조한 매출 때문에 팀이 전략을 재고해야 했다",
 
+    "They cut corners to finish the project on time.": "그들은 프로젝트를 제시간에 끝내기 위해 대충 했다.",
+    "Don’t cut corners when it comes to safety.": "안전에 관한 한 절대 대충하지 마라.",
+    
+    "He’s a real penny-pincher who never eats out.": "그는 절대 외식하지 않는 진짜 구두쇠다.",
+    "The CEO is known as a penny-pincher.": "그 CEO는 구두쇠로 알려져 있다.",
+
+
     "She puts aside a little money each month.": "그녀는 매달 돈을 조금씩 저축한다.",
     "He put aside his differences to work with her.": "그는 그녀와 일하기 위해 의견 차이를 제쳐두었다.",
 
@@ -299,16 +305,13 @@ words_4 = {
     "Your package is on the way.": "네 소포가 오는 중이다.",
     "She is on the way to success.": "그녀는 성공하는 중이다.",
 
-    "He is up to his ears in debt.": "그는 빚에 파묻혀 있다.",
-    "She’s up to her ears in work.": "그녀는 일에 파묻혀 있다.",
-
     "He works hard to bring home the bacon.": "그는 생계를 꾸리기 위해 열심히 일한다.",
     "She brings home the bacon for her family.": "그녀는 가족을 위해 생계를 책임진다.",
 
     "He works two jobs to put food on the table.": "그는 식구들을 먹여 살리기 위해 두 가지 일을 한다.",
     "She struggles to put food on the table.": "그녀는 식구들을 먹여 살리려고 고생한다.",
 
-    "A small loan kept the wolf from the table.": "작은 대출이 굶주림을 면하게 했다.",
+    "A small loan kept the wolf from the door.": "작은 대출이 굶주림을 면하게 했다.",
     "His new job keeps the wolf from the door.": "그의 새 직장이 굶주림을 면하게 한다.",
 
     "He made a killing in the stock market.": "그는 주식 시장에서 큰돈을 벌었다.",
@@ -398,7 +401,7 @@ words_5 = {
     "Customers beat a path to the new store’s door.": "고객들이 새 가게에 몰려갔다.",
 
     "He is in debt up to his ears.": "그는 빚더미에 올라 있다.",
-    "She is in debt up to her eyeballs.": "그녀는 빚에 파묻혀 있다.",
+    "She is in debt up to her ears.": "그녀는 빚에 파묻혀 있다.",
 
     "He’s in the hole for thousands of dollars.": "그는 수천 달러의 적자에 빠져 있다.",
     "The company is in the hole again this year.": "그 회사는 올해도 적자다.",

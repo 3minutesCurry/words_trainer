@@ -341,7 +341,7 @@ words_4 = {
 "My parents walked down the aisle in the 80s.": "우리 부모님은 80년대에 결혼하셨다.",
 
 "Don’t trust that scumbag again.": "그 쓰레기 같은 인간은 다시 믿지 마.",
-"He’s such a scumbag for cheating on her.": "그는 그녀를 속인 쓰레기 같은 남자다.",
+"He’s such a scumbag for cheating on her.": "그녀를 속이고 바람피우다니, 진짜 쓰레기 같은 놈이다.",
 
 "All my hard work went down the drain.": "내 모든 노력이 물거품이 됐다.",
 "The company’s profits went down the drain after the scandal.": "그 회사의 수익은 스캔들 이후 물거품이 됐다.",
@@ -493,7 +493,7 @@ words_6 ={
 "The dog suddenly turned on its owner.": "그 개는 갑자기 주인을 공격했다.",
 
 "He sold out his friends for money.": "그는 돈 때문에 친구들을 배신했다.",
-"Don’t sell out your principles.": "자신의 원칙을 팔지 마.",
+"Don’t sell out your principles.": "자신의 원칙을 져버리지 마.",
 
 "He threw me under the bus to save himself.": "그는 자기만 살려고 나를 희생시켰다.",
 "She felt thrown under the bus by her manager.": "그녀는 매니저에게 희생당했다고 느꼈다.",
@@ -538,7 +538,7 @@ words_6 ={
 "She wants to even the score with her ex.": "그녀는 전 남자친구에게 복수하고 싶어한다.",
 
 "He settled a score with his old friend.": "그는 옛 친구와의 앙갚음을 끝냈다.",
-"They met to settle the score once and for all.": "그들은 마침내 앙갚음을 끝내기 위해 만났다.",
+"They met to settle the score once and for all.": "그들은 마지막으로 앙갚음을 끝내기 위해 만났다.",
 
 "He’s on the warpath after the argument.": "그는 다툰 후에 몹시 화가 나 있다.",
 "The boss is on the warpath today, so be careful.": "오늘 상사 기분이 험하니까 조심해.",

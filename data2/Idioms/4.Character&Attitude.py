@@ -74,6 +74,9 @@ words_1 = {
     "leech": "거머리 / 기생하는 사람",
     "make a living": "생계를 꾸리다",
     "earn a living": "생계를 벌다",
+}
+
+words_2 = {
 
     "people person": "사람들과 잘 어울리는 사람",
     "social butterfly": "사교성이 아주 좋은 사람",
@@ -90,7 +93,7 @@ words_1 = {
     "keep to oneself": "자기만의 시간을 가지다, 남과 어울리지 않다",
     "prefer one’s own company": "혼자 있기를 선호하다",
     "like being on one’s own": "혼자 있기를 좋아하다",
-    "like being by one’s own": "혼자 있기를 좋아하다",
+    "like being by oneself": "혼자 있기를 좋아하다",
     "lone wolf": "외톨이, 혼자 행동하는 사람",
     "be a loner": "외톨이다",
     "social recluse": "사회적 은둔자",
@@ -103,21 +106,20 @@ words_1 = {
     "square peg in a round hole": "주변과 맞지 않는 사람",
     "social misfit": "사회 부적응자",
     "social outcast": "사회적으로 소외된 사람",
-}
-words_2 = {
+
     "blow one’s own horn": "자기자랑하다",
     "pat oneself on the back": "스스로 칭찬하다",
     "brag about himself": "자기 자랑하다",
     "boast about himself": "자기 자랑하다",
     "show-off": "잘난 척하는 사람, 허세 부리다",
     "showboat": "잘난 척하는 사람, 허세 부리다",
-    "blow one’s own toot": "자기자랑하다",
+    "toot one’s own horn": "자기자랑하다",
     "give that": "그것만큼은 인정하다",
     "give oneself a pat on the back": "스스로 칭찬하다",
 
     "wrapped up in oneself": "자기 생각에만 빠진",
     "look out for number one": "자기만 챙기다",
-    "with~, it’s “me, me , me”": "~는 자기밖에 모른다",
+    "with~, it’s “me, me, me”": "~는 자기밖에 모른다",
     "self-centered": "자기중심적인",
     "only care about herself": "자기밖에 신경 안 쓰다",
     "look out for": "~을 보살피다, ~만 생각하다, 조심하다",
@@ -134,7 +136,9 @@ words_2 = {
     "stand no chance against": "~을 절대 이길 수 없다",
     "britches": "바지, 분수",
     "lay out": "배열하다, 설명하다, 계획하다",
+}
 
+words_3 = {
     "have a hard head": "고집 세다",
     "set in one’s ways": "자기 방식만 고수하다",
     "stubborn as a mule": "황소고집이다",
@@ -181,7 +185,6 @@ words_2 = {
     "starry-eyed": "순진하게 이상적인",
     "pragmatic": "실용적인",
     "dependable": "믿을 수 있는",
-    "as~as the next person": "누구 못지않게 ~하다",
     "come by": "얻다, 손에 넣다",
     "lose one’s shirt": "큰 손해를 보다",
     "get one’s head out of the clouds": "몽상에서 벗어나라",
@@ -195,7 +198,34 @@ words_2 = {
     "get along": "잘 지내다, 어울리다",
 }
 
-words_3 = {
+words_4 = {
+    "She’s generous to a fault, giving away more than she can afford.": "그녀는 지나칠 정도로 관대해서 감당할 수 없는 것까지 베푼다.",
+    "He’s generous to a fault with his friends.": "그는 친구들에게 지나칠 정도로 관대하다.",
+
+    "She has a heart of gold and always helps others.": "그녀는 마음씨가 착해서 늘 남을 도와준다.",
+    "Everyone says he’s got a heart of gold.": "모두가 그가 마음씨가 아주 착하다고 말한다.",
+
+    "He’s all heart when it comes to helping people.": "사람들을 돕는 일이라면 그는 정말 친절하다.",
+    "She’s all heart and never turns anyone away.": "그녀는 매우 따뜻해서 누구도 거절하지 않는다.",
+
+    "She always gives of herself to help the community.": "그녀는 공동체를 위해 언제나 헌신한다.",
+    "He gave of himself to support the cause.": "그는 그 대의를 위해 자신을 바쳤다.",
+
+    "He’d give the shirt off his back to help a stranger.": "그는 낯선 사람을 도우려고 자기 옷까지 벗어줄 정도다.",
+    "She’s so kind she’d give the shirt off her back.": "그녀는 너무 친절해서 가진 걸 다 내줄 정도다.",
+
+    "She’s a kind-hearted teacher who truly cares for her students.": "그녀는 학생들을 진심으로 아끼는 마음씨 고운 선생님이다.",
+    "He’s a kind-hearted man who helps stray animals.": "그는 길 잃은 동물을 도와주는 마음씨 고운 사람이다.",
+
+    "She’s a caring person who volunteers every weekend.": "그녀는 매주 주말마다 봉사하는 배려심 깊은 사람이다.",
+    "He’s such a caring person; he always checks on his friends.": "그는 늘 친구들을 챙기는 다정한 사람이다.",
+
+    "She’s loyal to a fault, even when people don’t deserve it.": "그녀는 사람들이 그럴 자격이 없어도 지나치게 충실하다.",
+    "He’s honest to a fault and never lies.": "그는 지나칠 정도로 정직해서 거짓말을 전혀 하지 않는다.",
+
+    "The host was very gracious to all the guests.": "그 주최자는 모든 손님에게 매우 정중했다.",
+    "She gave a gracious smile after winning the award.": "그녀는 상을 받고 상냥하게 미소 지었다.",
+
     "He’s as hard as nails and never shows weakness.": "그는 매우 강인해서 약한 모습을 절대 보이지 않는다.",
     "Soldiers trained to be as hard as nails in battle.": "군인들은 전투에서 아주 강인해지도록 훈련받았다.",
 
@@ -258,7 +288,9 @@ words_3 = {
 
     "It was all a con to get money.": "그건 전부 돈을 뜯어내려는 사기였다.",
     "He conned them into giving him cash.": "그는 속여서 그들로부터 현금을 받아냈다.",
+}
 
+words_5 = {
     "The company swindled investors.": "그 회사는 투자자들을 사취했다.",
     "He swindled people out of millions.": "그는 사람들에게서 수백만 달러를 가로챘다.",
 
@@ -321,8 +353,7 @@ words_3 = {
 
     "She’s self-reliant and independent.": "그녀는 자립적이고 독립적이다.",
     "He grew up to be self-reliant.": "그는 자립적인 사람으로 성장했다.",
-}
-words_4 = {
+
     "The farm is self-sufficient.": "그 농장은 자급자족한다.",
     "They became self-sufficient after moving.": "그들은 이사 후 자급자족하게 되었다.",
 
@@ -339,14 +370,19 @@ words_4 = {
     "He leaned on his family in crisis.": "그는 위기 속에서 가족에게 의지했다.",
 
     "He freeloads off his parents.": "그는 부모님 등골을 빼먹고 산다.",
+    "Stop freeloading off your friends and get a job.": "친구들한테 얹혀살지 말고 일 좀 해라.",
+
     "She freeloaded on her friends.": "그녀는 친구들에게 얹혀살았다.",
+    "He freeloaded on his coworkers for free meals.": "그는 동료들에게 얹혀서 공짜 밥을 얻어먹었다.",
 
     "He leeches off others’ kindness.": "그는 남의 호의를 빌미로 빌붙는다.",
     "They leech off the government.": "그들은 정부 지원에 빌붙어 산다.",
 
     "He sponged off his relatives.": "그는 친척들에게 얻어먹고 살았다.",
     "She sponged off friends for meals.": "그녀는 끼니를 친구들에게 얹혀 먹었다.",
+}
 
+words_6 = {
     "They live off welfare.": "그들은 복지에 의존해 산다.",
     "He lived off his savings.": "그는 저축한 돈으로 버텼다.",
 
@@ -410,6 +446,9 @@ words_4 = {
     "He likes being on his own.": "그는 혼자 있는 걸 좋아한다.",
     "She likes being on her own.": "그녀는 혼자 지내는 게 좋다.",
 
+    "He likes being by himself on weekends.": "그는 주말엔 혼자 지내는 걸 좋아한다.",
+    "She likes being by herself after work.": "그녀는 퇴근 후 혼자 있는 시간을 좋아한다.",
+
     "He’s a lone wolf who avoids groups.": "그는 무리를 피하는 외톨이다.",
     "She worked as a lone wolf.": "그녀는 혼자서 독립적으로 일했다.",
 
@@ -433,7 +472,8 @@ words_4 = {
 
     "She was a wallflower at the dance.": "그녀는 무도회에서 소극적으로 구석에만 있었다.",
     "He always feels like a wallflower.": "그는 항상 어울리지 못하는 사람처럼 느낀다.",
-
+}
+words_7 = {
     "He’s a stick in the mud who hates change.": "그는 변화를 싫어하는 재미없는 사람이다.",
     "She’s such a stick in the mud.": "그녀는 정말 재미없고 보수적이다.",
 
@@ -445,8 +485,7 @@ words_4 = {
 
     "He became a social outcast after the scandal.": "그는 스캔들 이후 사회적으로 왕따가 되었다.",
     "She was treated as a social outcast.": "그녀는 사회적으로 따돌림을 당했다.",
-}
-words_5 = {
+
     "He likes to blow his own horn whenever he wins.": "그는 이기기만 하면 자기자랑을 한다.",
     "Stop blowing your own horn about your success.": "성공했다고 그만 자랑해.",
 
@@ -465,8 +504,8 @@ words_5 = {
     "She’s a real showboat on stage.": "그녀는 무대에서 허세를 부린다.",
     "He tends to showboat during games.": "그는 경기 중에 잘난 척을 하는 편이다.",
 
-    "He’s always blowing his own toot at work.": "그는 직장에서 늘 자기자랑을 한다.",
-    "She blew her own toot after solving the problem.": "그녀는 문제를 풀고 자기가 잘했다고 떠벌렸다.",
+    "He’s always tooting his own horn at work.": "그는 직장에서 늘 자기자랑을 한다.",
+    "She tooted her own horn after solving the problem.": "그녀는 문제를 풀고 자기가 잘했다고 떠벌렸다.",
 
     "I’ll give you that, you worked hard.": "그건 인정할게, 너 정말 열심히 했어.",
     "She’s not very kind, but smart—I’ll give her that.": "그녀가 상냥하진 않지만 똑똑한 건 인정해.",
@@ -524,7 +563,8 @@ words_5 = {
 
     "He bought new britches.": "그는 새 바지를 샀다.",
     "Don’t forget your britches, cowboy.": "바지 챙기는 거 잊지 마, 카우보이.",
-
+}
+words_8 = {
     "She laid out her plan clearly.": "그녀는 계획을 명확히 설명했다.",
     "He laid out the tools on the table.": "그는 도구들을 탁자 위에 가지런히 펼쳐 놓았다.",
 
@@ -569,8 +609,7 @@ words_5 = {
 
     "He looks on the dark side of things.": "그는 항상 비관적으로 본다.",
     "Don’t look on the dark side all the time.": "늘 부정적으로만 보지 마.",
-}
-words_8 = {
+
     "She’s a glass-half-full person.": "그녀는 낙관적인 사람이다.",
     "He tried to see the glass-half-full.": "그는 긍정적으로 보려고 노력했다.",
 
@@ -616,6 +655,8 @@ words_8 = {
     "He’s a daredevil who loves skydiving.": "그는 스카이다이빙을 즐기는 모험광이다.",
     "Don’t be such a daredevil.": "그렇게 무모하게 굴지 마.",
 
+}
+words_9 = {
     "He stepped out of his comfort zone.": "그는 안전지대에서 벗어났다.",
     "She left her comfort zone abroad.": "그녀는 해외에서 새로운 도전에 나섰다.",
 
@@ -658,9 +699,6 @@ words_8 = {
     "He’s dependable in a crisis.": "그는 위기 상황에서도 믿을 만하다.",
     "She’s a dependable friend.": "그녀는 믿을 수 있는 친구다.",
 
-    "He’s as talented as the next person.": "그는 남들만큼 재능 있다.",
-    "She works as hard as the next person.": "그녀는 남들 못지않게 열심히 일한다.",
-
     "He came by a rare coin.": "그는 희귀한 동전을 우연히 얻었다.",
     "She came by some old books.": "그녀는 오래된 책들을 손에 넣었다.",
 
@@ -693,7 +731,4 @@ words_8 = {
 
     "They get along very well.": "그들은 아주 사이좋게 지낸다.",
     "She gets along with her coworkers.": "그녀는 동료들과 잘 지낸다.",
-}
-words_6 = {
-
 }
