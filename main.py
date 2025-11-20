@@ -663,12 +663,21 @@ if st.session_state["step"] == 21:
     files = import_modules_from_folder(base_path, word_category_name)
     st.write(f"* {word_category_name}")
     files_names = list(files.keys())
-    file_order = 1
+    file_numbers = len(files_names)
+    while True:
+        error = 0
+        for i in range(file_numbers):
+            if i+1 != files[files_names[i]].order:
+                temp = files_names[i]
+                del files_names[i]
+                files_names.append(temp)
+                error = 1
+                break
+        if error == 0:
+            break
 
     for k in files_names:
         time.sleep(0.05)
-        if files[k].order != file_order:
-            file_order = files[k].order
         if st.button(f"{files[k].name}", key=f"button_{k}"):
             st.session_state["file_name"] = files[k].name
             st.session_state["step"] = 22
